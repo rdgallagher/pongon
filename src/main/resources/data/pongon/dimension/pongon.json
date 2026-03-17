@@ -1,0 +1,16 @@
+{
+  "type": "pongon:pongon",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "pongon:pongon",
+      "layers": [
+        { "height": 215, "block": "minecraft:netherrack" },
+        { "height": 1,   "block": "minecraft:magma_block" }
+      ],
+      "lakes": false,
+      "features": false,
+      "structures": { "structures": {} }
+    }
+  }
+}
