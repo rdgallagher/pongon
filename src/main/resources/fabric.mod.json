@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "pongon",
+  "version": "${version}",
+  "name": "Pongon",
+  "description": "A new dimension based on a hot exoplanet.",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/pongon/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.pongon.Pongon"
+    ]
+  },
+  "mixins": [
+    "pongon.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "fabric-api": "*",
+    "minecraft": "~1.21"
+  }
+}
