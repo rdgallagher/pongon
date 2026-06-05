@@ -1,6 +1,7 @@
 package net.pongon;
 
 import net.fabricmc.api.ModInitializer;
+import net.pongon.block.ModBlocks;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,5 +12,6 @@ public class Pongon implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Pongon dimension loading...");
+        ModBlocks.initialize();
     }
 }

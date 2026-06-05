@@ -5,8 +5,8 @@
     "settings": {
       "biome": "pongon:pongon",
       "layers": [
-        { "height": 215, "block": "minecraft:netherrack" },
-        { "height": 1,   "block": "minecraft:magma_block" }
+        { "height": 205, "block": "pongon:crushed_magma" },
+        { "height": 11,  "block": "minecraft:magma_block" }
       ],
       "lakes": false,
       "features": false,
