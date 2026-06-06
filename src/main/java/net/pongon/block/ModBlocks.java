@@ -17,6 +17,13 @@ public class ModBlocks {
                     .requiresTool()
                     .sounds(BlockSoundGroup.BASALT)));
 
+    // Unmineable world floor — kill mechanic is a separate TODO
+    public static final Block ROCK_VAPOUR = register("rock_vapour",
+            new Block(AbstractBlock.Settings.create()
+                    .strength(-1.0f, Float.MAX_VALUE)
+                    .luminance((state) -> 15)
+                    .noBlockBreakParticles()));
+
     private static Block register(String name, Block block) {
         Identifier id = Identifier.of(Pongon.MOD_ID, name);
         Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
