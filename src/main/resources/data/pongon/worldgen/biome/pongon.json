@@ -22,5 +22,5 @@
   "carvers": {
     "air": ["minecraft:cave", "minecraft:canyon"]
   },
-  "features": [[], [], [], [], [], [], [], [], [], [], []]
+  "features": [[], [], [], [], [], [], ["pongon:pongonite_ore"], [], [], [], []]
 }

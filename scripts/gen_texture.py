@@ -68,7 +68,10 @@ def generate(prompt, output_path, width=16, height=16):
 
 
 if __name__ == "__main__":
-    generate(
-        prompt="dark compacted volcanic magma, muted orange lava glow in cracks, rough stone surface, darker than magma block",
-        output_path="src/main/resources/assets/pongon/textures/block/crushed_magma.png",
-    )
+    if len(sys.argv) == 3:
+        generate(prompt=sys.argv[1], output_path=sys.argv[2])
+    else:
+        generate(
+            prompt="dark compacted volcanic magma, muted orange lava glow in cracks, rough stone surface, darker than magma block",
+            output_path="src/main/resources/assets/pongon/textures/block/crushed_magma.png",
+        )
