@@ -24,7 +24,7 @@ public class ModBlocks {
                     .sounds(BlockSoundGroup.STONE)));
 
     // Unmineable world floor — kill mechanic is a separate TODO
-    public static final Block ROCK_VAPOUR = register("rock_vapour",
+    public static final Block ROCK_VAPOR = register("rock_vapor",
             new Block(AbstractBlock.Settings.create()
                     .strength(-1.0f, Float.MAX_VALUE)
                     .luminance((state) -> 15)

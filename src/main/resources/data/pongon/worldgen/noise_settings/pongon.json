@@ -100,7 +100,7 @@
         },
         "then_run": {
           "type": "minecraft:block",
-          "result_state": {"Name": "pongon:rock_vapour"}
+          "result_state": {"Name": "pongon:rock_vapor"}
         }
       },
       {
