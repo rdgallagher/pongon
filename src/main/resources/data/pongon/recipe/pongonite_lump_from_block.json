@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [{"item": "pongon:pongonite_block"}],
+  "result": {"id": "pongon:pongonite_lump", "count": 9}
+}

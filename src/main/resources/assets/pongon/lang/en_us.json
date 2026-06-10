@@ -2,5 +2,15 @@
   "block.pongon.crushed_magma": "Crushed Magma",
   "block.pongon.rock_vapor": "Rock Vapor",
   "block.pongon.pongonite_ore": "Pongonite Ore",
-  "item.pongon.pongonite_lump": "Pongonite Lump"
+  "block.pongon.pongonite_block": "Pongonite Block",
+  "item.pongon.pongonite_lump": "Pongonite Lump",
+  "item.pongon.pongonite_pickaxe": "Pongonite Pickaxe",
+  "item.pongon.pongonite_axe": "Pongonite Axe",
+  "item.pongon.pongonite_shovel": "Pongonite Shovel",
+  "item.pongon.pongonite_hoe": "Pongonite Hoe",
+  "item.pongon.pongonite_sword": "Pongonite Sword",
+  "item.pongon.pongonite_helmet": "Pongonite Helmet",
+  "item.pongon.pongonite_chestplate": "Pongonite Chestplate",
+  "item.pongon.pongonite_leggings": "Pongonite Leggings",
+  "item.pongon.pongonite_boots": "Pongonite Boots"
 }

@@ -1,4 +1,4 @@
 {
   "replace": false,
-  "values": ["pongon:crushed_magma", "pongon:pongonite_ore"]
+  "values": ["pongon:crushed_magma", "pongon:pongonite_ore", "pongon:pongonite_block"]
 }

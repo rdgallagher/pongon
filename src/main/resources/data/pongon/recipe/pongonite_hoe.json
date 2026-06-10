@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["LL", " S", " S"],
+  "key": {
+    "L": {"item": "pongon:pongonite_lump"},
+    "S": {"item": "minecraft:stick"}
+  },
+  "result": {"id": "pongon:pongonite_hoe", "count": 1}
+}

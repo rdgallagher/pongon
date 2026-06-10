@@ -23,6 +23,12 @@ public class ModBlocks {
                     .requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
 
+    public static final Block PONGONITE_BLOCK = register("pongonite_block",
+            new Block(AbstractBlock.Settings.create()
+                    .strength(30.0f, 1200.0f)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
     // Unmineable world floor — kill mechanic is a separate TODO
     public static final Block ROCK_VAPOR = register("rock_vapor",
             new Block(AbstractBlock.Settings.create()

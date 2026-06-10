@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["LLL", "L L"],
+  "key": {"L": {"item": "pongon:pongonite_lump"}},
+  "result": {"id": "pongon:pongonite_helmet", "count": 1}
+}
