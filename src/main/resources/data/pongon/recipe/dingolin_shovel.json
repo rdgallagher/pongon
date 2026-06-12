@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["B", "S", "S"],
+  "key": {
+    "B": {"item": "pongon:dingolin_ball"},
+    "S": {"item": "minecraft:stick"}
+  },
+  "result": {"id": "pongon:dingolin_shovel", "count": 1}
+}

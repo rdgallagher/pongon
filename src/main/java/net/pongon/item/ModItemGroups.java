@@ -21,6 +21,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CRUSHED_MAGMA);
                         entries.add(ModBlocks.PONGONITE_ORE);
                         entries.add(ModBlocks.PONGONITE_BLOCK);
+                        entries.add(ModBlocks.DINGOLIN_ORE);
+                        entries.add(ModBlocks.DINGOLIN_BLOCK);
                         entries.add(ModBlocks.ROCK_VAPOR);
                         entries.add(ModItems.PONGONITE_LUMP);
                         entries.add(ModItems.PONGONITE_SWORD);
@@ -32,6 +34,17 @@ public class ModItemGroups {
                         entries.add(ModItems.PONGONITE_CHESTPLATE);
                         entries.add(ModItems.PONGONITE_LEGGINGS);
                         entries.add(ModItems.PONGONITE_BOOTS);
+                        entries.add(ModItems.DINGOLIN_CRYSTAL);
+                        entries.add(ModItems.DINGOLIN_BALL);
+                        entries.add(ModItems.DINGOLIN_SWORD);
+                        entries.add(ModItems.DINGOLIN_PICKAXE);
+                        entries.add(ModItems.DINGOLIN_AXE);
+                        entries.add(ModItems.DINGOLIN_SHOVEL);
+                        entries.add(ModItems.DINGOLIN_HOE);
+                        entries.add(ModItems.DINGOLIN_HELMET);
+                        entries.add(ModItems.DINGOLIN_CHESTPLATE);
+                        entries.add(ModItems.DINGOLIN_LEGGINGS);
+                        entries.add(ModItems.DINGOLIN_BOOTS);
                     })
                     .build()
     );

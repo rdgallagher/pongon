@@ -37,6 +37,33 @@ public class ModItems {
     public static final Item PONGONITE_BOOTS = register("pongonite_boots",
             new ArmorItem(PONGONITE_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings()));
 
+    // Dingolin
+    public static final Item DINGOLIN_CRYSTAL = register("dingolin_crystal", new Item(new Item.Settings()));
+    public static final Item DINGOLIN_BALL = register("dingolin_ball", new Item(new Item.Settings()));
+
+    public static final RegistryEntry<ArmorMaterial> DINGOLIN_ARMOR_MATERIAL = registerDingolinArmorMaterial();
+
+    public static final Item DINGOLIN_PICKAXE = register("dingolin_pickaxe",
+            new PickaxeItem(ModToolMaterials.DINGOLIN, new Item.Settings()));
+    public static final Item DINGOLIN_AXE = register("dingolin_axe",
+            new AxeItem(ModToolMaterials.DINGOLIN, new Item.Settings()));
+    public static final Item DINGOLIN_SHOVEL = register("dingolin_shovel",
+            new ShovelItem(ModToolMaterials.DINGOLIN, new Item.Settings()));
+    public static final Item DINGOLIN_HOE = register("dingolin_hoe",
+            new HoeItem(ModToolMaterials.DINGOLIN, new Item.Settings()));
+    public static final Item DINGOLIN_SWORD = register("dingolin_sword",
+            new SwordItem(ModToolMaterials.DINGOLIN, new Item.Settings()
+                    .attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.DINGOLIN, 3, -2.4F))));
+
+    public static final Item DINGOLIN_HELMET = register("dingolin_helmet",
+            new ArmorItem(DINGOLIN_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Settings()));
+    public static final Item DINGOLIN_CHESTPLATE = register("dingolin_chestplate",
+            new ArmorItem(DINGOLIN_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
+    public static final Item DINGOLIN_LEGGINGS = register("dingolin_leggings",
+            new ArmorItem(DINGOLIN_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Settings()));
+    public static final Item DINGOLIN_BOOTS = register("dingolin_boots",
+            new ArmorItem(DINGOLIN_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings()));
+
     private static RegistryEntry<ArmorMaterial> registerArmorMaterial() {
         Identifier id = Identifier.of(Pongon.MOD_ID, "pongonite");
         Registry.register(Registries.ARMOR_MATERIAL, id, new ArmorMaterial(
@@ -50,6 +77,26 @@ public class ModItems {
                 SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
                 () -> Ingredient.ofItems(PONGONITE_LUMP),
                 List.of(new ArmorMaterial.Layer(Identifier.of(Pongon.MOD_ID, "pongonite"))),
+                3.0F,
+                0.1F
+        ));
+        return Registries.ARMOR_MATERIAL.getEntry(
+                RegistryKey.of(RegistryKeys.ARMOR_MATERIAL, id)).orElseThrow();
+    }
+
+    private static RegistryEntry<ArmorMaterial> registerDingolinArmorMaterial() {
+        Identifier id = Identifier.of(Pongon.MOD_ID, "dingolin");
+        Registry.register(Registries.ARMOR_MATERIAL, id, new ArmorMaterial(
+                Map.of(
+                        ArmorItem.Type.HELMET, 4,
+                        ArmorItem.Type.CHESTPLATE, 12,
+                        ArmorItem.Type.LEGGINGS, 9,
+                        ArmorItem.Type.BOOTS, 4
+                ),
+                8,
+                SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
+                () -> Ingredient.ofItems(DINGOLIN_BALL),
+                List.of(new ArmorMaterial.Layer(Identifier.of(Pongon.MOD_ID, "dingolin"))),
                 3.0F,
                 0.1F
         ));

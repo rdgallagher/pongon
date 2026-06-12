@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["BBB", "B B"],
+  "key": {"B": {"item": "pongon:dingolin_ball"}},
+  "result": {"id": "pongon:dingolin_helmet", "count": 1}
+}

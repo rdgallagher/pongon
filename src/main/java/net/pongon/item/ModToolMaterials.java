@@ -10,7 +10,9 @@ import net.pongon.Pongon;
 
 public enum ModToolMaterials implements ToolMaterial {
     PONGONITE(2500, 10.0F, 4.5F, 8,
-        TagKey.of(RegistryKeys.BLOCK, Identifier.of(Pongon.MOD_ID, "incorrect_for_pongonite_tool")));
+        TagKey.of(RegistryKeys.BLOCK, Identifier.of(Pongon.MOD_ID, "incorrect_for_pongonite_tool"))),
+    DINGOLIN(4000, 12.0F, 8.0F, 8,
+        TagKey.of(RegistryKeys.BLOCK, Identifier.of(Pongon.MOD_ID, "incorrect_for_dingolin_tool")));
 
     private final int durability;
     private final float miningSpeed;
@@ -35,6 +37,9 @@ public enum ModToolMaterials implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(ModItems.PONGONITE_LUMP);
+        return switch (this) {
+            case PONGONITE -> Ingredient.ofItems(ModItems.PONGONITE_LUMP);
+            case DINGOLIN  -> Ingredient.ofItems(ModItems.DINGOLIN_BALL);
+        };
     }
 }

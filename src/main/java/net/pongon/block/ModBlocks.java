@@ -29,6 +29,18 @@ public class ModBlocks {
                     .requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
 
+    public static final Block DINGOLIN_ORE = register("dingolin_ore",
+            new Block(AbstractBlock.Settings.create()
+                    .strength(150.0f, 3600.0f)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
+    public static final Block DINGOLIN_BLOCK = register("dingolin_block",
+            new Block(AbstractBlock.Settings.create()
+                    .strength(150.0f, 3600.0f)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
     // Unmineable world floor — kill mechanic is a separate TODO
     public static final Block ROCK_VAPOR = register("rock_vapor",
             new Block(AbstractBlock.Settings.create()

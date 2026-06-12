@@ -1,4 +1,4 @@
 {
   "replace": false,
-  "values": ["pongon:pongonite_ore", "pongon:pongonite_block"]
+  "values": ["pongon:pongonite_ore", "pongon:pongonite_block", "pongon:dingolin_ore", "pongon:dingolin_block"]
 }
