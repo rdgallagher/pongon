@@ -1,16 +1,31 @@
 # Pongon Design TODOs
 
+## Needs a design decision before implementation
+
 1. **Portal/Access** — how do you get to Pongon?
 2. **Biomes** — are there distinct biomes within the dimension, or is it one biome?
-3. **Pongonite tool/armour set** — pickaxe is confirmed, what about sword, axe, shovel, hoe, armour?
-4. **Dingolin tool/armour set** — same question
-5. **Armour stats** — does Pongonite/Dingolin armour give heat resistance or other special properties?
-6. **Crafting recipes** — Pongonite and Dingolin tools (standard patterns or unique?)
-7. **Additional items** — any other items beyond what's listed?
-8. **X-Ray Vision Potion details** — duration, brewing recipe specifics
-9. **Swim Boost Potion details** — duration
-10. **Terrain generation** — Pongol tree frequency, ore distribution details, terrain features beyond lava pools
-11. **Music/ambience** — any custom sounds?
-12. **Skybox** — what does the sky look like? Star colour?
-13. **Advancement/achievements** — any custom ones?
-14. **Lava Gun specifics** — range, fire rate, does it place lava or just do damage?
+3. **Dingolin tool/armour set** — which tools? same set as Pongonite?
+4. **Armour special properties** — does Pongonite/Dingolin armour give heat resistance or other effects?
+5. **X-Ray Vision Potion** — duration, brewing recipe specifics
+6. **Swim Boost Potion** — duration
+7. **Music/ambience** — any custom sounds?
+8. **Skybox** — what does the sky look like? Star colour?
+9. **Advancements** — any custom ones?
+10. **Lava Gun** — range, fire rate, does it place lava or just do damage?
+
+## Ready to implement (design settled)
+
+- [ ] Dingolin ore — block, world gen, drops (fully specced in design notes)
+- [ ] Crushed Magma world gen — underground stone layer (fully specced)
+- [ ] Rock Vapor kill mechanic — block exists, damage-on-contact not coded yet
+- [ ] Custom terrain generation — replace flat generator with noise-based terrain
+
+## Done
+
+- [x] Pongonite ore — block, world gen, drops
+- [x] Pongonite tool set — pickaxe, axe, shovel, hoe, sword
+- [x] Pongonite armour set — helmet, chestplate, leggings, boots
+- [x] Crafting recipes — all Pongonite tools, armour, and block
+- [x] Crushed Magma block
+- [x] Rock Vapor block
+- [x] Creative inventory tab
