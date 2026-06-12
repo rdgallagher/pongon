@@ -50,6 +50,10 @@ ITEMS = [
     ("assets/minecraft/textures/models/armor/diamond_layer_1.png", DIAMOND_HUE_MIN, DIAMOND_HUE_MAX, 80/360, "models/armor/dingolin_layer_1.png"),
     ("assets/minecraft/textures/models/armor/diamond_layer_2.png", DIAMOND_HUE_MIN, DIAMOND_HUE_MAX, 80/360, "models/armor/dingolin_layer_2.png"),
 
+    # --- Dingolin blocks: Pongonite block textures recolored (pink 335° → yellow-green 80°) ---
+    (OUT / "block/pongonite_ore.png",   310/360, 360/360, 80/360, "block/dingolin_ore.png"),
+    (OUT / "block/pongonite_block.png", 310/360, 360/360, 80/360, "block/dingolin_block.png"),
+
     # --- Dingolin Ball: Pongonite Lump recolored (pink 335° → yellow-green 80°) ---
     (OUT / "item/pongonite_lump.png", 310/360, 360/360, 80/360, "item/dingolin_ball.png"),
 
