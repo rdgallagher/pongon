@@ -2,6 +2,7 @@ package net.pongon;
 
 import net.fabricmc.api.ModInitializer;
 import net.pongon.block.ModBlocks;
+import net.pongon.item.ModItemGroups;
 import net.pongon.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,5 +16,6 @@ public class Pongon implements ModInitializer {
         LOGGER.info("Pongon dimension loading...");
         ModBlocks.initialize();
         ModItems.initialize();
+        ModItemGroups.initialize();
     }
 }
