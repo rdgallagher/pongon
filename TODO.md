@@ -15,7 +15,7 @@
 
 ## Ready to implement (design settled)
 
-- [ ] Dingolin ore — block, world gen, drops (fully specced in design notes)
+- [x] Dingolin ore — block, world gen, drops (fully specced in design notes)
 - [ ] Crushed Magma world gen — underground stone layer (fully specced)
 - [ ] Rock Vapor kill mechanic — block exists, damage-on-contact not coded yet
 - [ ] Custom terrain generation — replace flat generator with noise-based terrain
@@ -29,3 +29,4 @@
 - [x] Crushed Magma block
 - [x] Rock Vapor block
 - [x] Creative inventory tab
+- [x] Dingolin full set — ore, block, crystal/ball items, tools, armour, world gen, recipes, textures
