@@ -30,3 +30,4 @@
 - [x] Rock Vapor block
 - [x] Creative inventory tab
 - [x] Dingolin full set — ore, block, crystal/ball items, tools, armour, world gen, recipes, textures
+- [x] Day-night lava/magma cycle — ocean floor melts to lava at dawn, freezes back to magma at dusk

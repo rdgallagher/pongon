@@ -17,5 +17,6 @@ public class Pongon implements ModInitializer {
         ModBlocks.initialize();
         ModItems.initialize();
         ModItemGroups.initialize();
+        DayNightCycle.initialize();
     }
 }
