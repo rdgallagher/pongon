@@ -2,6 +2,8 @@ package net.pongon.block;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.LeavesBlock;
+import net.minecraft.block.PillarBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -40,6 +42,28 @@ public class ModBlocks {
                     .strength(150.0f, 3600.0f)
                     .requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
+
+    // --- Pongol Forest biome ---
+    public static final Block PONGOL_DIRT = register("pongol_dirt",
+            new Block(AbstractBlock.Settings.create()
+                    .strength(0.5f)
+                    .sounds(BlockSoundGroup.GRAVEL)));
+
+    public static final Block PONGOL_LOG = register("pongol_log",
+            new PillarBlock(AbstractBlock.Settings.create()
+                    .strength(2.0f)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .burnable()));
+
+    public static final Block PONGOL_LEAVES = register("pongol_leaves",
+            new LeavesBlock(AbstractBlock.Settings.create()
+                    .strength(0.2f)
+                    .ticksRandomly()
+                    .sounds(BlockSoundGroup.GRASS)
+                    .nonOpaque()
+                    .burnable()
+                    .suffocates((state, world, pos) -> false)
+                    .blockVision((state, world, pos) -> false)));
 
     // Unmineable world floor — kill mechanic is a separate TODO
     public static final Block ROCK_VAPOR = register("rock_vapor",

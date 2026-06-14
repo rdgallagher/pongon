@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "pongon:block/pongol_log_top",
+    "side": "pongon:block/pongol_log"
+  }
+}

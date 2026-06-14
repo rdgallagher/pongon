@@ -60,6 +60,15 @@ ITEMS = [
 
     # --- Dingolin Crystal: Amethyst Cluster recolored (purple ~260-310° → yellow-green 80°) ---
     ("assets/minecraft/textures/block/amethyst_cluster.png", 255/360, 315/360, 80/360, "item/dingolin_crystal.png"),
+
+    # --- Pongol Forest blocks ---
+    # Pongol Dirt: Soul Sand (brown ~30-40°) recolored to red-brown 16°
+    ("assets/minecraft/textures/block/soul_sand.png",   18/360, 55/360, 16/360, "block/pongol_dirt.png"),
+    # Pongol Log: Oak log recolored brown → orange-yellow 40°
+    ("assets/minecraft/textures/block/oak_log.png",     15/360, 55/360, 40/360, "block/pongol_log.png"),
+    ("assets/minecraft/textures/block/oak_log_top.png", 15/360, 55/360, 40/360, "block/pongol_log_top.png"),
+    # Pongol Leaves: Cherry leaves (untinted pink ~340°) recolored to orange 32°
+    ("assets/minecraft/textures/block/cherry_leaves.png", 290/360, 360/360, 32/360, "block/pongol_leaves.png"),
 ]
 
 

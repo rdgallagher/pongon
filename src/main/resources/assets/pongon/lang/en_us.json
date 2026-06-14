@@ -26,5 +26,9 @@
   "item.pongon.dingolin_helmet": "Dingolin Helmet",
   "item.pongon.dingolin_chestplate": "Dingolin Chestplate",
   "item.pongon.dingolin_leggings": "Dingolin Leggings",
-  "item.pongon.dingolin_boots": "Dingolin Boots"
+  "item.pongon.dingolin_boots": "Dingolin Boots",
+  "block.pongon.pongol_dirt": "Pongol Dirt",
+  "block.pongon.pongol_log": "Pongol Log",
+  "block.pongon.pongol_leaves": "Pongol Leaves",
+  "biome.pongon.pongol_forest": "Pongol Forest"
 }
