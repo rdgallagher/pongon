@@ -23,6 +23,16 @@ and `CONTEXT.md`.
 - [ ] Dingolin Spires biome — rocky islands studded with crystal/Dingolin formations
 - [ ] Canyons biome — **scope-C** (varies terrain shape): canyons, lava lake + lava rivers; needs a scope revisit before building
 
+## Known bugs
+
+- [ ] **Eating/drinking is interrupted (very slow) in the Pongon dimension** —
+  consumables take far longer than the Overworld and the use animation restarts
+  partway through, but eventually completes. Confirmed in Survival. The action is
+  interrupted/restarted (or game ticks are stretched by low TPS), not blocked.
+  Structured report + diagnostic plan: `docs/bugs/0001-consumables-interrupted-in-pongon.md`.
+  Next step: run the discriminating experiments in that report (measure MSPT/TPS,
+  day vs night, disable the day-night cycle).
+
 ## Ready to implement (design settled)
 
 - [x] Dingolin ore — block, world gen, drops (fully specced in design notes)
