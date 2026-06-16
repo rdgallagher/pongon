@@ -70,21 +70,22 @@ ITEMS = [
     # Pongol Log: Oak log recolored to orange 26° with boosted saturation (a plain
     # hue-shift on the desaturated bark just read as brown).
     ("assets/minecraft/textures/block/oak_log.png",     15/360, 55/360, 26/360, "block/pongol_log.png",
-     {"sat_mult": 1.8, "sat_floor": 0.78}),
+     {"sat_mult": 1.8, "sat_floor": 0.9, "val_mult": 1.45, "val_floor": 0.62}),
     ("assets/minecraft/textures/block/oak_log_top.png", 15/360, 55/360, 26/360, "block/pongol_log_top.png",
-     {"sat_mult": 1.8, "sat_floor": 0.78}),
+     {"sat_mult": 1.8, "sat_floor": 0.9, "val_mult": 1.45, "val_floor": 0.62}),
     # Pongol Leaves: Cherry leaves recolored across the whole texture into an orange→
     # yellow range (shadows orange, highlights yellow). Recoloring every pixel (not
     # just the pink band) is what kills the leftover yellow-green pixels that were
     # reading as green in-game (the block has no tint provider, so the texture shows
     # as-is).
     ("assets/minecraft/textures/block/cherry_leaves.png", 290/360, 360/360, 50/360, "block/pongol_leaves.png",
-     {"sat_mult": 1.8, "sat_floor": 0.6, "warm_range": (28/360, 52/360)}),
+     {"sat_mult": 2.0, "sat_floor": 0.85, "val_mult": 1.35, "val_floor": 0.7, "warm_range": (20/360, 38/360)}),
 ]
 
 
 def recolor(img: Image.Image, src_hue_min: float, src_hue_max: float, target_hue: float,
             sat_mult: float = 1.0, sat_floor: float = 0.0,
+            val_mult: float = 1.0, val_floor: float = 0.0,
             warm_range: tuple | None = None) -> Image.Image:
     """Hue-shift the matching pixels of `img`.
 
@@ -92,6 +93,8 @@ def recolor(img: Image.Image, src_hue_min: float, src_hue_max: float, target_hue
     saturation and value. Optional tweaks:
       - sat_mult / sat_floor: scale (then floor) saturation, to make a washed-out
         source read vividly.
+      - val_mult / val_floor: scale (then floor) brightness, to lift shadows so the
+        result looks luminous / self-lit ("glowing") rather than flat.
       - warm_range = (hue_dark, hue_light): instead of a single hue, map hue across
         the brightness of the matching pixels — darkest → hue_dark, lightest →
         hue_light — so one texture spans a range (e.g. red → orange → yellow).
@@ -138,7 +141,8 @@ def recolor(img: Image.Image, src_hue_min: float, src_hue_max: float, target_hue
             else:
                 new_h = target_hue
             new_s = min(1.0, max(sat_floor, s * sat_mult))
-            nr, ng, nb = colorsys.hsv_to_rgb(new_h, new_s, v)
+            new_v = min(1.0, max(val_floor, v * val_mult))
+            nr, ng, nb = colorsys.hsv_to_rgb(new_h, new_s, new_v)
             pixels[x, y] = (round(nr * 255), round(ng * 255), round(nb * 255), a)
     return out
 
