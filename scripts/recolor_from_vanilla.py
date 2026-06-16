@@ -67,11 +67,19 @@ ITEMS = [
     # saturation so it reads hot rather than dull brown.
     ("assets/minecraft/textures/block/coarse_dirt.png", 15/360, 55/360, 14/360, "block/pongol_dirt.png",
      {"sat_mult": 2.2, "sat_floor": 0.65, "warm_range": (6/360, 48/360)}),
-    # Pongol Log: Oak log recolored brown → orange 26°
-    ("assets/minecraft/textures/block/oak_log.png",     15/360, 55/360, 26/360, "block/pongol_log.png"),
-    ("assets/minecraft/textures/block/oak_log_top.png", 15/360, 55/360, 26/360, "block/pongol_log_top.png"),
-    # Pongol Leaves: Cherry leaves (untinted pink ~340°) recolored to yellow 50°
-    ("assets/minecraft/textures/block/cherry_leaves.png", 290/360, 360/360, 50/360, "block/pongol_leaves.png"),
+    # Pongol Log: Oak log recolored to orange 26° with boosted saturation (a plain
+    # hue-shift on the desaturated bark just read as brown).
+    ("assets/minecraft/textures/block/oak_log.png",     15/360, 55/360, 26/360, "block/pongol_log.png",
+     {"sat_mult": 1.8, "sat_floor": 0.78}),
+    ("assets/minecraft/textures/block/oak_log_top.png", 15/360, 55/360, 26/360, "block/pongol_log_top.png",
+     {"sat_mult": 1.8, "sat_floor": 0.78}),
+    # Pongol Leaves: Cherry leaves recolored across the whole texture into an orange→
+    # yellow range (shadows orange, highlights yellow). Recoloring every pixel (not
+    # just the pink band) is what kills the leftover yellow-green pixels that were
+    # reading as green in-game (the block has no tint provider, so the texture shows
+    # as-is).
+    ("assets/minecraft/textures/block/cherry_leaves.png", 290/360, 360/360, 50/360, "block/pongol_leaves.png",
+     {"sat_mult": 1.8, "sat_floor": 0.6, "warm_range": (28/360, 52/360)}),
 ]
 
 
