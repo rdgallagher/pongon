@@ -62,8 +62,8 @@ ITEMS = [
     ("assets/minecraft/textures/block/amethyst_cluster.png", 255/360, 315/360, 80/360, "item/dingolin_crystal.png"),
 
     # --- Pongol Forest blocks ---
-    # Pongol Dirt: Soul Sand (brown ~30-40°) recolored to red-brown 16°
-    ("assets/minecraft/textures/block/soul_sand.png",   18/360, 55/360, 16/360, "block/pongol_dirt.png"),
+    # Pongol Dirt: Coarse Dirt (brown ~25-40°, no soul-sand faces) recolored to red-orange 14°
+    ("assets/minecraft/textures/block/coarse_dirt.png", 15/360, 55/360, 14/360, "block/pongol_dirt.png"),
     # Pongol Log: Oak log recolored brown → orange 26°
     ("assets/minecraft/textures/block/oak_log.png",     15/360, 55/360, 26/360, "block/pongol_log.png"),
     ("assets/minecraft/textures/block/oak_log_top.png", 15/360, 55/360, 26/360, "block/pongol_log_top.png"),
