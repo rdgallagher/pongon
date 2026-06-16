@@ -62,8 +62,11 @@ ITEMS = [
     ("assets/minecraft/textures/block/amethyst_cluster.png", 255/360, 315/360, 80/360, "item/dingolin_crystal.png"),
 
     # --- Pongol Forest blocks ---
-    # Pongol Dirt: Coarse Dirt (brown ~25-40°, no soul-sand faces) recolored to red-orange 14°
-    ("assets/minecraft/textures/block/coarse_dirt.png", 15/360, 55/360, 14/360, "block/pongol_dirt.png"),
+    # Pongol Dirt: Coarse Dirt (brown ~25-40°, no soul-sand faces) recolored to a vivid
+    # warm range — shadows red, midtones orange, highlights yellow — with boosted
+    # saturation so it reads hot rather than dull brown.
+    ("assets/minecraft/textures/block/coarse_dirt.png", 15/360, 55/360, 14/360, "block/pongol_dirt.png",
+     {"sat_mult": 2.2, "sat_floor": 0.65, "warm_range": (6/360, 48/360)}),
     # Pongol Log: Oak log recolored brown → orange 26°
     ("assets/minecraft/textures/block/oak_log.png",     15/360, 55/360, 26/360, "block/pongol_log.png"),
     ("assets/minecraft/textures/block/oak_log_top.png", 15/360, 55/360, 26/360, "block/pongol_log_top.png"),
@@ -72,24 +75,71 @@ ITEMS = [
 ]
 
 
-def recolor(img: Image.Image, src_hue_min: float, src_hue_max: float, target_hue: float) -> Image.Image:
+def recolor(img: Image.Image, src_hue_min: float, src_hue_max: float, target_hue: float,
+            sat_mult: float = 1.0, sat_floor: float = 0.0,
+            warm_range: tuple | None = None) -> Image.Image:
+    """Hue-shift the matching pixels of `img`.
+
+    By default every matching pixel is mapped to `target_hue`, keeping its
+    saturation and value. Optional tweaks:
+      - sat_mult / sat_floor: scale (then floor) saturation, to make a washed-out
+        source read vividly.
+      - warm_range = (hue_dark, hue_light): instead of a single hue, map hue across
+        the brightness of the matching pixels — darkest → hue_dark, lightest →
+        hue_light — so one texture spans a range (e.g. red → orange → yellow).
+    """
     out = img.copy().convert("RGBA")
     pixels = out.load()
+
+    # warm_range is a deliberate full-texture restyle, so it recolors every opaque
+    # pixel (including desaturated grey specks); the plain hue-shift only touches
+    # pixels already within the source hue band.
+    def matches(h, s):
+        if warm_range is not None:
+            return True
+        return src_hue_min <= h <= src_hue_max and s > 0.1
+
+    # For warm_range we stretch the hue across the actual brightness span of the
+    # matching pixels, so the full red→yellow range is used regardless of source.
+    v_lo, v_hi = 0.0, 1.0
+    if warm_range is not None:
+        vs = []
+        for y in range(out.height):
+            for x in range(out.width):
+                r, g, b, a = pixels[x, y]
+                if a == 0:
+                    continue
+                h, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+                if matches(h, s):
+                    vs.append(v)
+        if vs:
+            v_lo, v_hi = min(vs), max(vs)
+
     for y in range(out.height):
         for x in range(out.width):
             r, g, b, a = pixels[x, y]
             if a == 0:
                 continue
             h, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
-            if src_hue_min <= h <= src_hue_max and s > 0.1:
-                nr, ng, nb = colorsys.hsv_to_rgb(target_hue, s, v)
-                pixels[x, y] = (round(nr * 255), round(ng * 255), round(nb * 255), a)
+            if not matches(h, s):
+                continue
+            if warm_range is not None:
+                hue_dark, hue_light = warm_range
+                t = (v - v_lo) / (v_hi - v_lo) if v_hi > v_lo else 0.5
+                new_h = hue_dark + (hue_light - hue_dark) * t
+            else:
+                new_h = target_hue
+            new_s = min(1.0, max(sat_floor, s * sat_mult))
+            nr, ng, nb = colorsys.hsv_to_rgb(new_h, new_s, v)
+            pixels[x, y] = (round(nr * 255), round(ng * 255), round(nb * 255), a)
     return out
 
 
 def main():
     with zipfile.ZipFile(JAR) as jar:
-        for src, src_min, src_max, target_hue, dst in ITEMS:
+        for entry in ITEMS:
+            src, src_min, src_max, target_hue, dst = entry[:5]
+            opts = entry[5] if len(entry) > 5 else {}
             if isinstance(src, Path):
                 img = Image.open(src).convert("RGBA")
                 src_label = src.name
@@ -98,7 +148,7 @@ def main():
                 img = Image.open(io.BytesIO(data)).convert("RGBA")
                 src_label = src.split("/")[-1]
 
-            result = recolor(img, src_min, src_max, target_hue)
+            result = recolor(img, src_min, src_max, target_hue, **opts)
             out_path = OUT / dst
             out_path.parent.mkdir(parents=True, exist_ok=True)
             result.save(out_path, "PNG")
