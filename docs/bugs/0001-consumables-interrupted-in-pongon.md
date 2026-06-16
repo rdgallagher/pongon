@@ -1,6 +1,14 @@
 # Bug 0001 — Eating/drinking is interrupted (very slow to complete) in the Pongon dimension
 
-Status: **open — needs in-game measurement**
+Status: **open — narrowed to use-action interruption (not low TPS)**
+
+## Findings
+
+- **Server runs at a full 20 TPS in Pongon, same as the Overworld.** This rules
+  out cause (1) below — it is not a uniform tick-rate slowdown. The use action is
+  therefore being **periodically cancelled and restarted** (cause 2), which also
+  matches "the item goes back into your hand, then the munching continues."
+  Remaining work: find what recurringly cancels the active item.
 
 ## Symptoms
 
@@ -29,6 +37,13 @@ Two broad classes of cause, not yet distinguished:
    recurringly cancels the active item (e.g. block-update churn re-syncing the
    client, or recurring damage), resetting the eat timer so it must start over.
 
+**Leading hypothesis (after TPS was ruled out): recurring magma damage.** The
+Pongon surface is magma everywhere, and a player standing on/beside a magma block
+in Survival takes damage on a cadence. If taking damage cancels the active item,
+each hit restarts the eat, and it only completes during a gap — which matches the
+symptom exactly and is consistent with full 20 TPS. The first test below isolates
+this.
+
 ## Suspects (Pongon-specific systems)
 
 - **`DayNightCycle` chunk conversion** (`src/main/java/net/pongon/DayNightCycle.java`):
@@ -50,9 +65,14 @@ Two broad classes of cause, not yet distinguished:
 
 Do these standing in Pongon, ideally at a fixed spot:
 
-1. **Measure MSPT/TPS.** Open F3 and read the tick/MSPT graph (or use `/tick` /
-   `/debug`) in Pongon vs the Overworld, standing still. MSPT > 50 ms (TPS < 20)
-   would confirm cause (1), a uniform slowdown.
+0. **DONE — Measure MSPT/TPS.** Pongon ran at a full 20 TPS, same as the
+   Overworld. Cause (1) ruled out.
+1. **Eat away from magma/lava (isolates the leading hypothesis).** Stand deep
+   inland on solid Pongol Dirt with no magma or lava underfoot or adjacent (or, in
+   Survival, hover/stand on a placed safe block), then eat. Completes normally ⇒
+   it is recurring environmental damage from magma/lava cancelling the use, *not*
+   an item or dimension-data bug — and the real fix is the planned heat/standing
+   protection, not item logic.
 2. **Day vs night.** Compare eat speed during the Pongon **day** (ocean is lava)
    vs **night** (ocean is solid magma). Faster at night ⇒ the lava / melt
    conversion is the cost driver.
