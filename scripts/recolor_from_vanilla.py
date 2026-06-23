@@ -85,13 +85,15 @@ ITEMS = [
     # tight warm_range colorises the otherwise-grey source (the saturation floor does
     # the work) and lifts brightness so it reads as hot, glowing vapor.
     ("assets/minecraft/textures/block/bedrock.png", 0/360, 360/360, 52/360, "block/rock_vapor.png",
-     {"sat_mult": 3.0, "sat_floor": 0.85, "val_mult": 1.4, "val_floor": 0.7, "warm_range": (48/360, 58/360)}),
+     {"sat_mult": 3.0, "sat_floor": 0.85, "val_mult": 1.4, "val_floor": 0.7, "alpha": 140,
+      "warm_range": (48/360, 58/360)}),
 ]
 
 
 def recolor(img: Image.Image, src_hue_min: float, src_hue_max: float, target_hue: float,
             sat_mult: float = 1.0, sat_floor: float = 0.0,
             val_mult: float = 1.0, val_floor: float = 0.0,
+            alpha: int | None = None,
             warm_range: tuple | None = None) -> Image.Image:
     """Hue-shift the matching pixels of `img`.
 
@@ -101,6 +103,8 @@ def recolor(img: Image.Image, src_hue_min: float, src_hue_max: float, target_hue
         source read vividly.
       - val_mult / val_floor: scale (then floor) brightness, to lift shadows so the
         result looks luminous / self-lit ("glowing") rather than flat.
+      - alpha: if set, override the output alpha of every recolored pixel (0-255),
+        for a translucent result. Fully transparent source pixels stay transparent.
       - warm_range = (hue_dark, hue_light): instead of a single hue, map hue across
         the brightness of the matching pixels — darkest → hue_dark, lightest →
         hue_light — so one texture spans a range (e.g. red → orange → yellow).
@@ -149,7 +153,8 @@ def recolor(img: Image.Image, src_hue_min: float, src_hue_max: float, target_hue
             new_s = min(1.0, max(sat_floor, s * sat_mult))
             new_v = min(1.0, max(val_floor, v * val_mult))
             nr, ng, nb = colorsys.hsv_to_rgb(new_h, new_s, new_v)
-            pixels[x, y] = (round(nr * 255), round(ng * 255), round(nb * 255), a)
+            new_a = alpha if alpha is not None else a
+            pixels[x, y] = (round(nr * 255), round(ng * 255), round(nb * 255), new_a)
     return out
 
 

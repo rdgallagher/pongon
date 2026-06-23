@@ -73,6 +73,7 @@ public class ModBlocks {
             new RockVaporBlock(AbstractBlock.Settings.create()
                     .strength(-1.0f, Float.MAX_VALUE)
                     .luminance((state) -> 15)
+                    .nonOpaque()
                     .noBlockBreakParticles()));
 
     private static Block register(String name, Block block) {

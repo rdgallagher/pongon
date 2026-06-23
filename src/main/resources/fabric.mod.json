@@ -12,6 +12,9 @@
   "entrypoints": {
     "main": [
       "net.pongon.Pongon"
+    ],
+    "client": [
+      "net.pongon.PongonClient"
     ]
   },
   "mixins": [
