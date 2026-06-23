@@ -37,7 +37,7 @@ and `CONTEXT.md`.
 
 - [x] Dingolin ore — block, world gen, drops (fully specced in design notes)
 - [ ] Crushed Magma world gen — underground stone layer (fully specced)
-- [ ] Rock Vapor kill mechanic — block exists, damage-on-contact not coded yet
+- [x] Rock Vapor kill mechanic — glowing yellow pass-through gas, 20 HP/sec contact damage
 - [ ] Custom terrain generation — replace flat generator with noise-based terrain
 
 ## Done

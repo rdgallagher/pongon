@@ -67,9 +67,10 @@ public class ModBlocks {
                     .suffocates((state, world, pos) -> false)
                     .blockVision((state, world, pos) -> false)));
 
-    // Unmineable world floor — kill mechanic is a separate TODO
+    // Unmineable world floor: a glowing, searing gas you fall through and that burns
+    // anything inside it (see RockVaporBlock).
     public static final Block ROCK_VAPOR = register("rock_vapor",
-            new Block(AbstractBlock.Settings.create()
+            new RockVaporBlock(AbstractBlock.Settings.create()
                     .strength(-1.0f, Float.MAX_VALUE)
                     .luminance((state) -> 15)
                     .noBlockBreakParticles()));
