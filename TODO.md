@@ -18,7 +18,8 @@ Architecture decided — `multi_noise` with continentalness derived from the isl
 noise; Lava Ocean base + per-island biomes. See `docs/adr/0001-biome-placement-from-terrain-noise.md`
 and `CONTEXT.md`.
 
-- [ ] Pongol Forest follow-ups — saplings + sapling growth, Pongol Planks + crafting recipes, ground tuft vegetation, distinct sky/fog tint
+- [ ] Pongol Forest follow-ups — saplings + sapling growth, ground tuft vegetation, distinct sky/fog tint
+- [x] Pongol wood family — Pongol Wood + Pongol Planks blocks, Oak-style recipes (log→planks, 4 logs→wood)
 - [ ] Ashen Barrens biome — bare ash/crushed-magma islands, harsher feel
 - [ ] Dingolin Spires biome — rocky islands studded with crystal/Dingolin formations
 - [ ] Canyons biome — **scope-C** (varies terrain shape): canyons, lava lake + lava rivers; needs a scope revisit before building

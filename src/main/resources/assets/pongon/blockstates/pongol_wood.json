@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=x": { "model": "pongon:block/pongol_wood", "x": 90, "y": 90 },
+    "axis=y": { "model": "pongon:block/pongol_wood" },
+    "axis=z": { "model": "pongon:block/pongol_wood", "x": 90 }
+  }
+}

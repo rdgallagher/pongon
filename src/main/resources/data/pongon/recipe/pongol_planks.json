@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [{"tag": "pongon:pongol_logs"}],
+  "result": {"id": "pongon:pongol_planks", "count": 4}
+}

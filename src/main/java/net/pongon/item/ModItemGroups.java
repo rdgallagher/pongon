@@ -26,6 +26,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.ROCK_VAPOR);
                         entries.add(ModBlocks.PONGOL_DIRT);
                         entries.add(ModBlocks.PONGOL_LOG);
+                        entries.add(ModBlocks.PONGOL_WOOD);
+                        entries.add(ModBlocks.PONGOL_PLANKS);
                         entries.add(ModBlocks.PONGOL_LEAVES);
                         entries.add(ModItems.PONGONITE_LUMP);
                         entries.add(ModItems.PONGONITE_SWORD);

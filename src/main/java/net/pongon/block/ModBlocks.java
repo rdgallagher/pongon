@@ -56,6 +56,19 @@ public class ModBlocks {
                     .luminance((state) -> 5)
                     .burnable()));
 
+    public static final Block PONGOL_WOOD = register("pongol_wood",
+            new PillarBlock(AbstractBlock.Settings.create()
+                    .strength(2.0f)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .luminance((state) -> 5)
+                    .burnable()));
+
+    public static final Block PONGOL_PLANKS = register("pongol_planks",
+            new Block(AbstractBlock.Settings.create()
+                    .strength(2.0f)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .burnable()));
+
     public static final Block PONGOL_LEAVES = register("pongol_leaves",
             new LeavesBlock(AbstractBlock.Settings.create()
                     .strength(0.2f)

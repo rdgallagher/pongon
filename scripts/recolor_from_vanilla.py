@@ -73,6 +73,9 @@ ITEMS = [
      {"sat_mult": 1.8, "sat_floor": 0.9, "val_mult": 1.45, "val_floor": 0.62}),
     ("assets/minecraft/textures/block/oak_log_top.png", 15/360, 55/360, 26/360, "block/pongol_log_top.png",
      {"sat_mult": 1.8, "sat_floor": 0.9, "val_mult": 1.45, "val_floor": 0.62}),
+    # Pongol Planks: Oak planks recolored to match the orange logs.
+    ("assets/minecraft/textures/block/oak_planks.png",  15/360, 55/360, 26/360, "block/pongol_planks.png",
+     {"sat_mult": 1.8, "sat_floor": 0.85, "val_mult": 1.35, "val_floor": 0.55}),
     # Pongol Leaves: Cherry leaves recolored across the whole texture into an orange→
     # yellow range (shadows orange, highlights yellow). Recoloring every pixel (not
     # just the pink band) is what kills the leftover yellow-green pixels that were

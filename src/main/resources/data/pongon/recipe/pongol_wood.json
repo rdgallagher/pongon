@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["WW", "WW"],
+  "key": {"W": {"item": "pongon:pongol_log"}},
+  "result": {"id": "pongon:pongol_wood", "count": 3}
+}
