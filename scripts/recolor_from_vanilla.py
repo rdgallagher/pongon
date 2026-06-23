@@ -86,7 +86,7 @@ ITEMS = [
     # the work) and lifts brightness so it reads as hot, glowing vapor.
     ("assets/minecraft/textures/block/bedrock.png", 0/360, 360/360, 52/360, "block/rock_vapor.png",
      {"sat_mult": 3.0, "sat_floor": 0.85, "val_mult": 1.4, "val_floor": 0.7, "alpha": 140,
-      "warm_range": (48/360, 58/360)}),
+      "warm_range": (40/360, 50/360)}),
 ]
 
 
