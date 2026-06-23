@@ -53,6 +53,7 @@ public class ModBlocks {
             new PillarBlock(AbstractBlock.Settings.create()
                     .strength(2.0f)
                     .sounds(BlockSoundGroup.WOOD)
+                    .luminance((state) -> 5)
                     .burnable()));
 
     public static final Block PONGOL_LEAVES = register("pongol_leaves",
@@ -61,6 +62,7 @@ public class ModBlocks {
                     .ticksRandomly()
                     .sounds(BlockSoundGroup.GRASS)
                     .nonOpaque()
+                    .luminance((state) -> 5)
                     .burnable()
                     .suffocates((state, world, pos) -> false)
                     .blockVision((state, world, pos) -> false)));
