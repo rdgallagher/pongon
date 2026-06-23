@@ -1,0 +1,1 @@
+{ "type": "minecraft:crafting_shapeless", "ingredients": [{"item": "pongon:pongol_planks"}], "result": {"id": "pongon:pongol_button", "count": 1} }

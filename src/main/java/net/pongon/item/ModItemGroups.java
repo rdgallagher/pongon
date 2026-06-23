@@ -28,6 +28,14 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PONGOL_LOG);
                         entries.add(ModBlocks.PONGOL_WOOD);
                         entries.add(ModBlocks.PONGOL_PLANKS);
+                        entries.add(ModBlocks.PONGOL_STAIRS);
+                        entries.add(ModBlocks.PONGOL_SLAB);
+                        entries.add(ModBlocks.PONGOL_FENCE);
+                        entries.add(ModBlocks.PONGOL_FENCE_GATE);
+                        entries.add(ModBlocks.PONGOL_DOOR);
+                        entries.add(ModBlocks.PONGOL_TRAPDOOR);
+                        entries.add(ModBlocks.PONGOL_PRESSURE_PLATE);
+                        entries.add(ModBlocks.PONGOL_BUTTON);
                         entries.add(ModBlocks.PONGOL_LEAVES);
                         entries.add(ModItems.PONGONITE_LUMP);
                         entries.add(ModItems.PONGONITE_SWORD);

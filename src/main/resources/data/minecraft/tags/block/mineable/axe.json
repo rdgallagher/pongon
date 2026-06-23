@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "pongon:pongol_log",
+    "pongon:pongol_wood",
+    "pongon:pongol_planks",
+    "pongon:pongol_stairs",
+    "pongon:pongol_slab",
+    "pongon:pongol_fence",
+    "pongon:pongol_fence_gate",
+    "pongon:pongol_door",
+    "pongon:pongol_trapdoor",
+    "pongon:pongol_pressure_plate",
+    "pongon:pongol_button"
+  ]
+}

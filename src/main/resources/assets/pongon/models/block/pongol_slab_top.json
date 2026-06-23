@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {"bottom": "pongon:block/pongol_planks", "top": "pongon:block/pongol_planks", "side": "pongon:block/pongol_planks"}
+}

@@ -2,8 +2,18 @@ package net.pongon.block;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSetType;
+import net.minecraft.block.ButtonBlock;
+import net.minecraft.block.DoorBlock;
+import net.minecraft.block.FenceBlock;
+import net.minecraft.block.FenceGateBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.PillarBlock;
+import net.minecraft.block.PressurePlateBlock;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.StairsBlock;
+import net.minecraft.block.TrapdoorBlock;
+import net.minecraft.block.WoodType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -88,6 +98,31 @@ public class ModBlocks {
                     .luminance((state) -> 15)
                     .nonOpaque()
                     .noBlockBreakParticles()));
+
+    // --- Pongol wood set (crafted from Pongol Planks; reuse vanilla OAK sounds) ---
+    public static final Block PONGOL_STAIRS = register("pongol_stairs",
+            new StairsBlock(PONGOL_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(PONGOL_PLANKS)));
+
+    public static final Block PONGOL_SLAB = register("pongol_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(PONGOL_PLANKS)));
+
+    public static final Block PONGOL_FENCE = register("pongol_fence",
+            new FenceBlock(AbstractBlock.Settings.copy(PONGOL_PLANKS)));
+
+    public static final Block PONGOL_FENCE_GATE = register("pongol_fence_gate",
+            new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(PONGOL_PLANKS)));
+
+    public static final Block PONGOL_DOOR = register("pongol_door",
+            new DoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(PONGOL_PLANKS).nonOpaque()));
+
+    public static final Block PONGOL_TRAPDOOR = register("pongol_trapdoor",
+            new TrapdoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(PONGOL_PLANKS).nonOpaque()));
+
+    public static final Block PONGOL_PRESSURE_PLATE = register("pongol_pressure_plate",
+            new PressurePlateBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(PONGOL_PLANKS).noCollision()));
+
+    public static final Block PONGOL_BUTTON = register("pongol_button",
+            new ButtonBlock(BlockSetType.OAK, 30, AbstractBlock.Settings.copy(PONGOL_PLANKS).noCollision()));
 
     private static Block register(String name, Block block) {
         Identifier id = Identifier.of(Pongon.MOD_ID, name);

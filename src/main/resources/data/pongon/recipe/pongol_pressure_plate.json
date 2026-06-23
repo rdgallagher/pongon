@@ -1,0 +1,1 @@
+{ "type": "minecraft:crafting_shaped", "pattern": ["##"], "key": {"#": {"item": "pongon:pongol_planks"}}, "result": {"id": "pongon:pongol_pressure_plate", "count": 1} }

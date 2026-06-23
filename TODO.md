@@ -20,6 +20,7 @@ and `CONTEXT.md`.
 
 - [ ] Pongol Forest follow-ups — saplings + sapling growth, ground tuft vegetation, distinct sky/fog tint
 - [x] Pongol wood family — Pongol Wood + Pongol Planks blocks, Oak-style recipes (log→planks, 4 logs→wood)
+- [x] Pongol plank-derived set — stairs, slab, fence, fence gate, door, trapdoor, pressure plate, button (blocks, recipes, tags). Signs + boats deferred (need block-entities / entity-types)
 - [ ] Ashen Barrens biome — bare ash/crushed-magma islands, harsher feel
 - [ ] Dingolin Spires biome — rocky islands studded with crystal/Dingolin formations
 - [ ] Canyons biome — **scope-C** (varies terrain shape): canyons, lava lake + lava rivers; needs a scope revisit before building

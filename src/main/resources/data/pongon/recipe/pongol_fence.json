@@ -1,0 +1,1 @@
+{ "type": "minecraft:crafting_shaped", "pattern": ["W#W", "W#W"], "key": {"W": {"item": "pongon:pongol_planks"}, "#": {"item": "minecraft:stick"}}, "result": {"id": "pongon:pongol_fence", "count": 3} }

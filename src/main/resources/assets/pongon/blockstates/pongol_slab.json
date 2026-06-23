@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "pongon:block/pongol_slab" },
+    "type=top":    { "model": "pongon:block/pongol_slab_top" },
+    "type=double": { "model": "pongon:block/pongol_planks" }
+  }
+}

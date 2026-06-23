@@ -31,6 +31,14 @@
   "block.pongon.pongol_log": "Pongol Log",
   "block.pongon.pongol_wood": "Pongol Wood",
   "block.pongon.pongol_planks": "Pongol Planks",
+  "block.pongon.pongol_stairs": "Pongol Stairs",
+  "block.pongon.pongol_slab": "Pongol Slab",
+  "block.pongon.pongol_fence": "Pongol Fence",
+  "block.pongon.pongol_fence_gate": "Pongol Fence Gate",
+  "block.pongon.pongol_door": "Pongol Door",
+  "block.pongon.pongol_trapdoor": "Pongol Trapdoor",
+  "block.pongon.pongol_pressure_plate": "Pongol Pressure Plate",
+  "block.pongon.pongol_button": "Pongol Button",
   "block.pongon.pongol_leaves": "Pongol Leaves",
   "biome.pongon.pongol_forest": "Pongol Forest"
 }
