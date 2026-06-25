@@ -41,6 +41,8 @@ and `CONTEXT.md`.
 - [ ] Crushed Magma world gen — underground stone layer (fully specced)
 - [x] Rock Vapor kill mechanic — glowing yellow pass-through gas, 20 HP/sec contact damage
 - [ ] Custom terrain generation — replace flat generator with noise-based terrain
+- [ ] Lava Blob (mob) — wild blob fully specced in `docs/specs/lava-blob.md`; first
+      entity (scaffolds ModEntities/ModEffects). Taming deferred to Canyons biome
 
 ## Done
 

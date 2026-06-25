@@ -70,12 +70,16 @@ Diamond → Pongonite → Dingolin
 
 ### Lava Blobs (Passive)
 
-- Springy lava blobs, player-sized, flat bottom/semicircular top
-- Bounce across lava lake surfaces
+- Springy lava blobs, player-sized, flat bottom/semicircular top; glow like lava
+- Hop around the surface — over land and lava alike — during the hot day; curious and
+  friendly (they hop toward you), and bumping one gives a harmless springy push
 - **Invincible** — infinite HP, can't die
-- Hitting one gives you **Potion of Blobiness** (2 min): tired, can't hit passive mobs
-- Daytime only (need 300C+), 50% despawn chance every 5 min when it cools
-- Can be kept alive above fire in an enclosure
+- Attacking one (melee or projectile) gives you **Potion of Blobiness** (2 min):
+  tired (Slowness + Mining Fatigue), and you can't damage passive mobs
+- Daytime only (need 300C+); at night, 50% despawn chance every 5 min unless kept
+  warm (daytime returns, or stood on a heat source / boxed in above fire)
+- **Tameable** — but only with food from the Canyons biome (planned)
+- Full design: `docs/specs/lava-blob.md`
 - Can't be bred or farmed
 
 ### Pongol Dragon (Boss)

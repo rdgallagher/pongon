@@ -27,3 +27,15 @@ _Avoid_: land biome, terrain biome
 **Magma beach**:
 The band of bare magma (the Base surface) at an island's waterline, between the island's surface skin above and the day/night lava cycle at the sea-level band below. Every Island biome's shoreline is a magma beach.
 _Avoid_: shore, coast, waterline
+
+**Lava Blob**:
+A passive, invincible, springy lava mob that hops around the surface during the hot day. Harmless to bump (springy push), but attacking one inflicts Potion of Blobiness. Tameable, but only with food from the Canyons biome. See `docs/specs/lava-blob.md`.
+_Avoid_: lava slime, magma cube, lava cube
+
+**Potion of Blobiness**:
+The 2-minute status effect a Lava Blob inflicts on any player who attacks it: Slowness + Mining Fatigue ("tired"), plus the player deals zero damage to passive (PassiveEntity) mobs for the duration. Not a brewed potion — only applied by Lava Blobs.
+_Avoid_: blob potion, tiredness, sliminess
+
+**Hot / hot day (300 °C)**:
+Pongon's daytime, when the surface is lava and Lava Blobs spawn. The "300 °C" threshold in design notes is the same binary day flag the day/night cycle already uses; cold/night is its complement.
+_Avoid_: warm, temperature level, summer
