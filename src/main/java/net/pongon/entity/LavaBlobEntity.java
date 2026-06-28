@@ -1,5 +1,7 @@
 package net.pongon.entity;
 
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -17,6 +19,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import net.pongon.PongonTime;
+import net.pongon.block.ModBlocks;
 import net.pongon.effect.ModEffects;
 
 /**
@@ -32,6 +35,10 @@ import net.pongon.effect.ModEffects;
 public class LavaBlobEntity extends SlimeEntity {
     // One fixed size — Lava Blobs don't split or vary like vanilla slimes.
     private static final int FIXED_SIZE = 2;
+    // At night a wild blob cools: every 5 minutes it has a 50% chance to despawn,
+    // unless it stays warm (see isOnHeatSource). Daytime is always safe.
+    private static final int NIGHT_DESPAWN_INTERVAL = 5 * 60 * 20; // ticks (5 min)
+    private static final float NIGHT_DESPAWN_CHANCE = 0.5f;
 
     public LavaBlobEntity(EntityType<? extends LavaBlobEntity> entityType, World world) {
         super(entityType, world);
@@ -77,6 +84,35 @@ public class LavaBlobEntity extends SlimeEntity {
     @Override
     public boolean isSmall() {
         return false;
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (!this.getWorld().isClient && this.age > 0 && this.age % NIGHT_DESPAWN_INTERVAL == 0) {
+            rollNightDespawn();
+        }
+    }
+
+    /**
+     * Once every {@link #NIGHT_DESPAWN_INTERVAL}, a wild blob that has cooled (it is
+     * night and it is not sitting on a heat source) has a 50% chance to despawn.
+     * (Tamed blobs will be exempt once taming exists — Canyons biome.)
+     */
+    private void rollNightDespawn() {
+        if (PongonTime.isHot(this.getWorld())) return; // daytime: still hot, safe
+        if (isOnHeatSource()) return;                  // kept warm, safe
+        if (this.random.nextFloat() < NIGHT_DESPAWN_CHANCE) {
+            this.discard();
+        }
+    }
+
+    private boolean isOnHeatSource() {
+        BlockState below = this.getWorld().getBlockState(this.getBlockPos().down());
+        return below.isOf(Blocks.FIRE)
+                || below.isOf(Blocks.LAVA)
+                || below.isOf(Blocks.MAGMA_BLOCK)
+                || below.isOf(ModBlocks.CRUSHED_MAGMA);
     }
 
     /**
