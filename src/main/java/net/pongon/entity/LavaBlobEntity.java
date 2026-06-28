@@ -3,9 +3,13 @@ package net.pongon.entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.SlimeEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.pongon.effect.ModEffects;
 
 /**
  * Lava Blob — Pongon's springy lava creature.
@@ -53,5 +57,32 @@ public class LavaBlobEntity extends SlimeEntity {
     @Override
     public boolean isSmall() {
         return false;
+    }
+
+    /**
+     * Invincible. Any player attack (melee or projectile — both arrive here with the
+     * player as attacker) inflicts Blobiness on that player; melee additionally gives
+     * a springy recoil. No damage is ever taken.
+     */
+    @Override
+    public boolean damage(DamageSource source, float amount) {
+        if (!this.getWorld().isClient && source.getAttacker() instanceof PlayerEntity player) {
+            ModEffects.applyBlobiness(player);
+            boolean melee = source.getSource() == source.getAttacker();
+            if (melee) {
+                Vec3d away = this.getPos().subtract(player.getPos());
+                if (away.lengthSquared() > 1.0e-4) {
+                    away = away.normalize();
+                    this.setVelocity(away.x * 0.5, 0.42, away.z * 0.5);
+                    this.velocityModified = true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isFireImmune() {
+        return true;
     }
 }

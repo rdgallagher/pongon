@@ -42,5 +42,6 @@
   "block.pongon.pongol_leaves": "Pongol Leaves",
   "entity.pongon.lava_blob": "Lava Blob",
   "item.pongon.lava_blob_spawn_egg": "Lava Blob Spawn Egg",
+  "effect.pongon.blobiness": "Blobiness",
   "biome.pongon.pongol_forest": "Pongol Forest"
 }

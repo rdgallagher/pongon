@@ -2,6 +2,7 @@ package net.pongon;
 
 import net.fabricmc.api.ModInitializer;
 import net.pongon.block.ModBlocks;
+import net.pongon.effect.ModEffects;
 import net.pongon.entity.ModEntities;
 import net.pongon.item.ModItemGroups;
 import net.pongon.item.ModItems;
@@ -17,6 +18,7 @@ public class Pongon implements ModInitializer {
         LOGGER.info("Pongon dimension loading...");
         ModBlocks.initialize();
         ModEntities.initialize();
+        ModEffects.initialize();
         ModItems.initialize();
         ModItemGroups.initialize();
         DayNightCycle.initialize();
