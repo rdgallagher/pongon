@@ -2,7 +2,9 @@
   "required": true,
   "package": "net.pongon.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+    "SpawnRestrictionInvoker"
+  ],
   "client": [
     "WorldRendererMixin"
   ],

@@ -1,6 +1,7 @@
 package net.pongon.entity;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -10,8 +11,12 @@ import net.minecraft.entity.mob.SlimeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
+import net.pongon.PongonTime;
 import net.pongon.effect.ModEffects;
 
 /**
@@ -30,6 +35,18 @@ public class LavaBlobEntity extends SlimeEntity {
 
     public LavaBlobEntity(EntityType<? extends LavaBlobEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    /**
+     * Spawn rule: only during the Pongon day (the 300 °C "hot" gate), on a surface
+     * (land or the lava-ocean top) with headroom. Used with an UNRESTRICTED spawn
+     * location + surface heightmap, so this predicate does the gating itself.
+     */
+    public static boolean canSpawn(EntityType<LavaBlobEntity> type, ServerWorldAccess world,
+                                   SpawnReason reason, BlockPos pos, Random random) {
+        return PongonTime.isHot(world.toServerWorld())
+                && world.getBlockState(pos.up()).isAir()      // headroom
+                && !world.getBlockState(pos.down()).isAir();   // standing on land or lava
     }
 
     public static DefaultAttributeContainer.Builder createLavaBlobAttributes() {

@@ -74,7 +74,7 @@ public class DayNightCycle {
 
     private static void tick(ServerWorld world) {
         if (!world.getRegistryKey().equals(ModDimensions.PONGON_WORLD)) return;
-        boolean isDay = world.getTimeOfDay() % 24000L < 12000L;
+        boolean isDay = PongonTime.isHot(world);
 
         // On a day<->night flip, re-queue every loaded chunk so the whole ocean transitions.
         if (lastIsDay == null || lastIsDay != isDay) {
