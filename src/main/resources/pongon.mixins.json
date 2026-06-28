@@ -3,7 +3,9 @@
   "package": "net.pongon.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [],
-  "client": [],
+  "client": [
+    "WorldRendererMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

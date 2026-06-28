@@ -8,9 +8,8 @@
 4. **X-Ray Vision Potion** — duration, brewing recipe specifics
 5. **Swim Boost Potion** — duration
 6. **Music/ambience** — any custom sounds?
-7. **Skybox** — what does the sky look like? Star colour?
-8. **Advancements** — any custom ones?
-9. **Lava Gun** — range, fire rate, does it place lava or just do damage?
+7. **Advancements** — any custom ones?
+8. **Lava Gun** — range, fire rate, does it place lava or just do damage?
 
 ## Biomes
 
@@ -42,6 +41,9 @@ and `CONTEXT.md`.
 - [ ] Crushed Magma world gen — underground stone layer (fully specced)
 - [x] Rock Vapor kill mechanic — glowing yellow pass-through gas, 20 HP/sec contact damage
 - [ ] Custom terrain generation — replace flat generator with noise-based terrain
+- [x] Pongon sky — bright custom star (no moon), via client mixin on renderSky. Pending
+      in-game verification. Follow-up: the "blinding star" look-at-it mechanic (damage +
+      White Out), and optionally a bigger/tinted star or starless night.
 - [ ] Lava Blob (mob) — wild blob, spec in `docs/specs/lava-blob.md`. Taming deferred to Canyons.
       - [x] Entity + renderer + spawn egg (bounces, no aggression) — first entity, scaffolds ModEntities
       - [x] Invincibility + Potion of Blobiness (ModEffects; /kill still works)
