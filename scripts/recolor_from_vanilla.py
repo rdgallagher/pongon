@@ -93,6 +93,11 @@ ITEMS = [
     ("assets/minecraft/textures/block/cherry_leaves.png", 290/360, 360/360, 50/360, "block/pongol_leaves.png",
      {"sat_mult": 2.0, "sat_floor": 0.85, "val_mult": 1.35, "val_floor": 0.7, "warm_range": (20/360, 38/360)}),
 
+    # Lava Blob: vanilla slime texture (green) recolored to glowing molten lava
+    # (shadows deep red, highlights bright orange), high saturation + brightness.
+    ("assets/minecraft/textures/entity/slime/slime.png", 60/360, 180/360, 22/360, "entity/lava_blob.png",
+     {"sat_mult": 2.0, "sat_floor": 0.8, "val_mult": 1.3, "val_floor": 0.35, "warm_range": (8/360, 34/360)}),
+
     # Rock Vapor: Bedrock (greyscale) recolored to a bright glowing yellow gas. The
     # tight warm_range colorises the otherwise-grey source (the saturation floor does
     # the work) and lifts brightness so it reads as hot, glowing vapor.

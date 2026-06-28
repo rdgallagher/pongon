@@ -7,6 +7,7 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.pongon.Pongon;
+import net.pongon.entity.ModEntities;
 
 import java.util.List;
 import java.util.Map;
@@ -63,6 +64,10 @@ public class ModItems {
             new ArmorItem(DINGOLIN_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Settings()));
     public static final Item DINGOLIN_BOOTS = register("dingolin_boots",
             new ArmorItem(DINGOLIN_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings()));
+
+    // Mobs
+    public static final Item LAVA_BLOB_SPAWN_EGG = register("lava_blob_spawn_egg",
+            new SpawnEggItem(ModEntities.LAVA_BLOB, 0xE25822, 0xFFD11A, new Item.Settings()));
 
     private static RegistryEntry<ArmorMaterial> registerArmorMaterial() {
         Identifier id = Identifier.of(Pongon.MOD_ID, "pongonite");
