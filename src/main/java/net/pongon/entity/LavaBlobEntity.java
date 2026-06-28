@@ -8,6 +8,8 @@ import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.SlimeEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.pongon.effect.ModEffects;
@@ -90,5 +92,21 @@ public class LavaBlobEntity extends SlimeEntity {
     @Override
     public boolean isFireImmune() {
         return true;
+    }
+
+    /**
+     * Never deal contact damage. SlimeEntity.onPlayerCollision damages the player
+     * whenever canAttack() is true, so a friendly blob must report false. (Contact is
+     * meant to be a harmless springy push.)
+     */
+    @Override
+    protected boolean canAttack() {
+        return false;
+    }
+
+    /** Squish with molten-lava particles instead of the green slime particle. */
+    @Override
+    protected ParticleEffect getParticles() {
+        return ParticleTypes.LAVA;
     }
 }
