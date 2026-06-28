@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.SlimeEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -66,6 +67,11 @@ public class LavaBlobEntity extends SlimeEntity {
      */
     @Override
     public boolean damage(DamageSource source, float amount) {
+        // Let the /kill command (and similar invulnerability-bypassing kills) through,
+        // so blobs can still be removed; everything else is shrugged off.
+        if (source.isOf(DamageTypes.GENERIC_KILL)) {
+            return super.damage(source, amount);
+        }
         if (!this.getWorld().isClient && source.getAttacker() instanceof PlayerEntity player) {
             ModEffects.applyBlobiness(player);
             boolean melee = source.getSource() == source.getAttacker();
