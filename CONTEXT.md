@@ -29,8 +29,12 @@ The band of bare magma (the Base surface) at an island's waterline, between the 
 _Avoid_: shore, coast, waterline
 
 **Lava Blob**:
-A passive, invincible, springy lava mob that hops around the surface during the hot day. Harmless to bump (springy push), but attacking one inflicts Potion of Blobiness. Tameable, but only with food from the Canyons biome. See `docs/specs/lava-blob.md`.
+An invincible, springy lava mob that hops around the surface during the hot day. Friendly to players (harmless to bump; attacking one inflicts Potion of Blobiness) but a protective ally, not passive — it breathes a Rock Vapor Beam at hostile mobs that threaten it (or its owner, when tamed). Tameable, but only with food from the Canyons biome. See `docs/specs/lava-blob.md`.
 _Avoid_: lava slime, magma cube, lava cube
+
+**Rock Vapor Beam**:
+A Lava Blob's only attack: a continuous stream of Rock Vapor breathed at a hostile target, extending at 16 blocks/s, piercing every entity in its line (30/20/10 HP/s by difficulty — players and pets included) and melting the block it ends on into lava (except unbreakable blocks). Distinct from the Rock Vapor block itself.
+_Avoid_: vapor breath, lava breath, flamethrower
 
 **Potion of Blobiness**:
 The 2-minute status effect a Lava Blob inflicts on any player who attacks it: Slowness + Mining Fatigue ("tired"), plus the player deals zero damage to passive (PassiveEntity) mobs for the duration. Not a brewed potion — only applied by Lava Blobs.

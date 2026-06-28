@@ -74,6 +74,11 @@ Diamond → Pongonite → Dingolin
 - Hop around the surface — over land and lava alike — during the hot day; curious and
   friendly (they hop toward you), and bumping one gives a harmless springy push
 - **Invincible** — infinite HP, can't die
+- **Protective ally** (think Iron Golem): breathes a continuous **Rock Vapor beam** at
+  hostile mobs within 16 blocks (and, when tamed, at hostiles near its owner). The
+  beam extends at 16 blocks/s, burns through everything in its path for 30/20/10 HP/s
+  (Hard/Normal/Easy), and melts blocks into lava — ⚠️ **mind the line of fire** (it
+  hurts players and pets too, and will carve through your build)
 - Attacking one (melee or projectile) gives you **Potion of Blobiness** (2 min):
   tired (Slowness + Mining Fatigue), and you can't damage passive mobs
 - Daytime only (need 300C+); at night, 50% despawn chance every 5 min unless kept
