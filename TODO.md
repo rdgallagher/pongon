@@ -27,13 +27,14 @@ and `CONTEXT.md`.
 
 ## Known bugs
 
-- [ ] **Eating/drinking is interrupted (very slow) in the Pongon dimension** —
-  consumables take far longer than the Overworld and the use animation restarts
-  partway through, but eventually completes. Confirmed in Survival. The action is
-  interrupted/restarted (or game ticks are stretched by low TPS), not blocked.
-  Structured report + diagnostic plan: `docs/bugs/0001-consumables-interrupted-in-pongon.md`.
-  Next step: run the discriminating experiments in that report (measure MSPT/TPS,
-  day vs night, disable the day-night cycle).
+- [x] **Bug 0001 — server-thread freeze from the day/night lava cycle** (root cause
+  found). The magma↔lava conversion thrashes the light engine and leaves
+  never-cleaned flowing lava, freezing the server for 22–38 s at a time → resets
+  block-breaking + eating in every dimension. **DayNightCycle disabled** to confirm +
+  unblock. See `docs/bugs/0001-consumables-interrupted-in-pongon.md`.
+- [ ] **Redesign the day/night lava cycle** (re-enable without the freeze). Preferred:
+  surface-only + landlocked source lava + cheap setBlockState flags + freeze all lava.
+  Options in the bug doc. Re-flip `DayNightCycle.ENABLED` once reworked.
 
 ## Ready to implement (design settled)
 

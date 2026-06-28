@@ -27,6 +27,13 @@ import java.util.Set;
  * changes happen later in END_WORLD_TICK, when chunks are fully loaded and ticking.
  */
 public class DayNightCycle {
+    // DISABLED — root cause of bug 0001 (docs/bugs/0001-consumables-interrupted-in-pongon.md).
+    // The magma<->lava conversion freezes the server thread: light-engine
+    // re-propagation on every block (magma 3 <-> lava 15) plus flowing lava that
+    // never re-freezes. Off to confirm the diagnosis and unblock testing; flip back
+    // to true only with the redesign (see the bug doc's "Redesign options").
+    private static final boolean ENABLED = false;
+
     private static final Set<ChunkPos> loadedChunks = new HashSet<>();
     // Chunks awaiting a melt/freeze pass. A set so re-queuing is idempotent.
     private static final LinkedHashSet<ChunkPos> pending = new LinkedHashSet<>();
@@ -40,6 +47,8 @@ public class DayNightCycle {
     private static final int FLOOR_BOTTOM = SEA_LEVEL - 9; // 10-block layer, inclusive
 
     public static void initialize() {
+        if (!ENABLED) return;
+
         ServerChunkEvents.CHUNK_LOAD.register((world, chunk) -> {
             if (!world.getRegistryKey().equals(ModDimensions.PONGON_WORLD)) return;
             ChunkPos pos = chunk.getPos();
