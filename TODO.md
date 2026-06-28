@@ -41,8 +41,13 @@ and `CONTEXT.md`.
 - [ ] Crushed Magma world gen — underground stone layer (fully specced)
 - [x] Rock Vapor kill mechanic — glowing yellow pass-through gas, 20 HP/sec contact damage
 - [ ] Custom terrain generation — replace flat generator with noise-based terrain
-- [ ] Lava Blob (mob) — wild blob fully specced in `docs/specs/lava-blob.md`; first
-      entity (scaffolds ModEntities/ModEffects). Taming deferred to Canyons biome
+- [ ] Lava Blob (mob) — wild blob, spec in `docs/specs/lava-blob.md`. Taming deferred to Canyons.
+      - [x] Entity + renderer + spawn egg (bounces, no aggression) — first entity, scaffolds ModEntities
+      - [x] Invincibility + Potion of Blobiness (ModEffects; /kill still works)
+      - [ ] Natural day-gated spawning (extract shared PongonTime day helper)
+      - [ ] Despawn + keep-alive (night 50%/5min unless hot/heat source)
+      - [ ] Rock Vapor beam (16 blk/s, pierces, melts blocks to lava, 30/20/10 HP/s)
+      - [ ] Polish: flattened-dome model, single-icon Blobiness, sounds, contact springy push
 
 ## Done
 
