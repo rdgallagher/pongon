@@ -1,7 +1,8 @@
 # Bug 0001 — Eating/drinking is interrupted (very slow to complete) in the Pongon dimension
 
-Status: **ROOT CAUSE FOUND — the day/night lava cycle freezes the server thread.
-Cycle disabled to confirm + unblock; pending a redesign.**
+Status: **FIXED (pending in-game verification) — root cause was the day/night lava
+cycle freezing the server thread. Disabling it confirmed the diagnosis (lag + mining
+bug gone); the cycle has now been redesigned and re-enabled (option 1 below).**
 
 ## Root cause (found)
 
@@ -33,9 +34,14 @@ thread, so Pongon's stall lags every dimension).
 
 ### Resolution
 
-- **Now:** `DayNightCycle` disabled (`ENABLED = false`) to confirm the diagnosis and
-  unblock Lava Blob testing. If lag/mining issues vanish with it off, confirmed.
-- **Next:** redesign the cycle to avoid both costs (see options at the bottom).
+- **Confirmed:** disabling `DayNightCycle` removed the lag and the mining/eating bug
+  in-game.
+- **Fixed:** `DayNightCycle` redesigned per option 1 below and re-enabled — melt only
+  the landlocked ocean **surface** layer (no flow, ~10× fewer light updates), freeze
+  the whole band back to magma at night (cleans stray/flowing lava and self-heals old
+  saves), and use quiet `setBlockState` flags.
+- **Pending:** in-game verification that the surface still toggles lava↔magma with no
+  "Can't keep up" stalls (watch `run/logs/latest.log`).
 
 ## Findings (earlier)
 

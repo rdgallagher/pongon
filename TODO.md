@@ -32,9 +32,9 @@ and `CONTEXT.md`.
   never-cleaned flowing lava, freezing the server for 22–38 s at a time → resets
   block-breaking + eating in every dimension. **DayNightCycle disabled** to confirm +
   unblock. See `docs/bugs/0001-consumables-interrupted-in-pongon.md`.
-- [ ] **Redesign the day/night lava cycle** (re-enable without the freeze). Preferred:
-  surface-only + landlocked source lava + cheap setBlockState flags + freeze all lava.
-  Options in the bug doc. Re-flip `DayNightCycle.ENABLED` once reworked.
+- [x] **Redesign the day/night lava cycle** (re-enabled without the freeze) —
+  surface-only + landlocked source lava + freeze-the-whole-band cleanup + quiet
+  setBlockState flags. Pending in-game verification (no "Can't keep up" stalls).
 
 ## Ready to implement (design settled)
 
