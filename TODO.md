@@ -47,7 +47,9 @@ and `CONTEXT.md`.
 - [ ] Lava Blob (mob) — wild blob, spec in `docs/specs/lava-blob.md`. Taming deferred to Canyons.
       - [x] Entity + renderer + spawn egg (bounces, no aggression) — first entity, scaffolds ModEntities
       - [x] Invincibility + Potion of Blobiness (ModEffects; /kill still works)
-      - [x] Natural day-gated spawning (PongonTime helper; UNRESTRICTED + surface predicate, CREATURE pool in Pongon biomes) — pending in-game verification
+      - [x] Day-gated spawning — vanilla creature spawn was far too sparse, so a custom
+            capped near-player daytime spawner (LavaBlobSpawner) does the real work; the
+            biome creature-pool entry stays as a low-rate extra. PongonTime helper shared.
       - [x] Despawn + keep-alive (night 50%/5min unless daytime or on fire/lava/magma/crushed magma) — pending in-game verification
       - [ ] Rock Vapor beam (16 blk/s, pierces, melts blocks to lava, 30/20/10 HP/s)
       - [ ] Polish: flattened-dome model, single-icon Blobiness, sounds, contact springy push

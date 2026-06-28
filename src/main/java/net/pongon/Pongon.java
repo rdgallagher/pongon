@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.pongon.block.ModBlocks;
 import net.pongon.effect.ModEffects;
 import net.pongon.entity.ModEntities;
+import net.pongon.entity.LavaBlobSpawner;
 import net.pongon.item.ModItemGroups;
 import net.pongon.item.ModItems;
 import org.slf4j.Logger;
@@ -22,5 +23,6 @@ public class Pongon implements ModInitializer {
         ModItems.initialize();
         ModItemGroups.initialize();
         DayNightCycle.initialize();
+        LavaBlobSpawner.initialize();
     }
 }
