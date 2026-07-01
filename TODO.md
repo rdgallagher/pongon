@@ -51,8 +51,12 @@ and `CONTEXT.md`.
             capped near-player daytime spawner (LavaBlobSpawner) does the real work; the
             biome creature-pool entry stays as a low-rate extra. PongonTime helper shared.
       - [x] Despawn + keep-alive (night 50%/5min unless daytime or on fire/lava/magma/crushed magma) — pending in-game verification
-      - [ ] Rock Vapor beam (16 blk/s, pierces, melts blocks to lava, 30/20/10 HP/s)
-      - [ ] Polish: flattened-dome model, single-icon Blobiness, sounds, contact springy push
+      - [x] Rock Vapor beam — targets nearest hostile in 16 blocks, extends 16 blk/s,
+            pierces entities (30/20/10 HP/s), melts the end block to lava (bores forward),
+            yellow particle stream. Pending in-game verification. Owner-guard when tamed
+            deferred to Canyons.
+      - [ ] Polish: flattened-dome model, single-icon Blobiness, sounds, contact springy
+            push, beam sound, tune beam block-melt lag if needed
 
 ## Done
 
