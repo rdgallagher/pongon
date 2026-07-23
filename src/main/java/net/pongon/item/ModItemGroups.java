@@ -22,6 +22,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PONGONITE_ORE);
                         entries.add(ModBlocks.PONGONITE_BLOCK);
                         entries.add(ModBlocks.DINGOLIN_ORE);
+                        entries.add(ModBlocks.RAW_DINGOLIN_BLOCK);
                         entries.add(ModBlocks.DINGOLIN_BLOCK);
                         entries.add(ModBlocks.ROCK_VAPOR);
                         entries.add(ModBlocks.PONGOL_DIRT);

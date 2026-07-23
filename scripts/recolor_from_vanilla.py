@@ -53,7 +53,13 @@ ITEMS = [
     # --- Dingolin blocks: Pongonite block textures recolored (→ yellow-green 80°) ---
     # pongonite_ore uses blue-purple (258–308°); pongonite_block uses pink (323–329°)
     (OUT / "block/pongonite_ore.png",   248/360, 315/360, 80/360, "block/dingolin_ore.png"),
-    (OUT / "block/pongonite_block.png", 310/360, 360/360, 80/360, "block/dingolin_block.png"),
+    # The raw block keeps the nuggety Pongonite-block look: it's the unrefined form.
+    (OUT / "block/pongonite_block.png", 310/360, 360/360, 80/360, "block/raw_dingolin_block.png"),
+    # The refined Dingolin Block is the vanilla Iron Block's metallic bevel instead, so
+    # it reads as smelted metal rather than raw ore. Iron is greyscale, so the tight
+    # warm_range + saturation floor is what colorises it (same trick as rock_vapor).
+    ("assets/minecraft/textures/block/iron_block.png", 0/360, 360/360, 80/360, "block/dingolin_block.png",
+     {"sat_mult": 3.0, "sat_floor": 0.72, "val_mult": 0.92, "warm_range": (78/360, 84/360)}),
 
     # --- Dingolin Ball: Pongonite Lump recolored (pink 335° → yellow-green 80°) ---
     (OUT / "item/pongonite_lump.png", 310/360, 360/360, 80/360, "item/dingolin_ball.png"),

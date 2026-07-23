@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["CCC", "CCC", "CCC"],
+  "key": {"C": {"item": "pongon:dingolin_crystal"}},
+  "result": {"id": "pongon:raw_dingolin_block", "count": 1}
+}

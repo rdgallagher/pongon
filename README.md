@@ -53,7 +53,7 @@ Underground lava pools increase in density the deeper you go.
 - Hardness 150, blast resistance 3600 (3x Obsidian)
 - Requires **Pongonite Pickaxe** (Diamond/Netherite won't work)
 - ~7 per chunk, Y=+18 to +145 (peak +45), all biomes
-- Drops **Dingolin Crystals** → smelt into **Dingolin Balls** → craft 9 into **Dingolin Block**
+- Drops **Dingolin Crystals** → craft 9 into a **Raw Dingolin Block**, or smelt into **Dingolin Balls** → craft 9 into a **Dingolin Block**
 - All Dingolin forms work as fuel (16 items per Ball)
 
 ### Rock Vapour
@@ -111,6 +111,7 @@ Diamond → Pongonite → Dingolin
 - **Pongonite Block** — 9 lumps
 - **Pongonite Pickaxe** — needed for Dingolin
 - **Dingolin Crystals** — ore drop
+- **Raw Dingolin Block** — 9 crystals
 - **Dingolin Balls** — smelted crystals, fuel (16 items)
 - **Dingolin Block** — 9 balls
 - **Lava Gun** — boss drop, endgame weapon
