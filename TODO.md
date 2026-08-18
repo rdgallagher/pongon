@@ -41,6 +41,11 @@ and `CONTEXT.md`.
                   Crushed Magma in a slice-per-tick sweep (never below sea level)
             - [x] Ash cloud — plume over the crater + ash settling permanently around it
       - [ ] Hostile mob spawns — TBD
+      - [ ] Hand-placed Volcano Vents are half a volcano — they erupt with a plume and
+            lava bombs, but no lava streams or ashfall, because only VolcanoFeature
+            knows the cone's shape and records it on the vent. Deferred: decide whether
+            a placed vent should infer its cone from the surrounding terrain, or build
+            its own cone on placement (simpler, but makes the item "spawn a volcano").
       - [ ] Eruption follow-ups: warning rumble before it starts, custom sounds (the
             boom is currently vanilla's generic explode), and a look at whether repeated
             eruptions bury the cone in too much ash
