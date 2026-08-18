@@ -42,6 +42,7 @@ public class VolcanoFeature extends Feature<DefaultFeatureConfig> {
     private static final BlockState BODY = ModBlocks.CRUSHED_MAGMA.getDefaultState();
     private static final BlockState SKIN = ModBlocks.ASH.getDefaultState();
     private static final BlockState LAVA = Blocks.LAVA.getDefaultState();
+    private static final BlockState VENT = ModBlocks.VOLCANO_VENT.getDefaultState();
 
     public VolcanoFeature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
@@ -97,6 +98,11 @@ public class VolcanoFeature extends Feature<DefaultFeatureConfig> {
                 }
             }
         }
+
+        // The crater's centre column was filled to craterFloorY; swap its top block for
+        // the vent, so the world remembers a volcano stands here and can erupt it.
+        pos.set(origin.getX(), craterFloorY, origin.getZ());
+        setBlockState(world, pos, VENT);
         return true;
     }
 

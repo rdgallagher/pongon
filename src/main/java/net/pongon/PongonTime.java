@@ -14,4 +14,9 @@ public final class PongonTime {
     public static boolean isHot(World world) {
         return world.getTimeOfDay() % 24000L < 12000L;
     }
+
+    /** Which Pongon day it is, counting from world creation. Changes at dawn. */
+    public static long dayNumber(World world) {
+        return world.getTimeOfDay() / 24000L;
+    }
 }

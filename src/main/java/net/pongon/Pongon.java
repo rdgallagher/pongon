@@ -7,6 +7,7 @@ import net.pongon.entity.ModEntities;
 import net.pongon.entity.LavaBlobSpawner;
 import net.pongon.item.ModItemGroups;
 import net.pongon.item.ModItems;
+import net.pongon.world.ModBlockEntities;
 import net.pongon.world.ModFeatures;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,7 @@ public class Pongon implements ModInitializer {
         LOGGER.info("Pongon dimension loading...");
         ModBlocks.initialize();
         ModFeatures.initialize();
+        ModBlockEntities.initialize();
         ModEntities.initialize();
         ModEffects.initialize();
         ModItems.initialize();

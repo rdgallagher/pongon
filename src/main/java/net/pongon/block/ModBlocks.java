@@ -21,6 +21,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.pongon.Pongon;
+import net.pongon.world.VolcanoVentBlock;
 
 public class ModBlocks {
     public static final Block CRUSHED_MAGMA = register("crushed_magma",
@@ -101,6 +102,14 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.create()
                     .strength(0.5f)
                     .sounds(BlockSoundGroup.SAND)));
+
+    // Buried in a volcano's crater: ordinary rock to look at, but it remembers that a
+    // volcano is here and erupts it (see VolcanoVentBlockEntity).
+    public static final Block VOLCANO_VENT = register("volcano_vent",
+            new VolcanoVentBlock(AbstractBlock.Settings.create()
+                    .strength(1.0f, 3.0f)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.BASALT)));
 
     // Unmineable world floor: a glowing, searing gas you fall through and that burns
     // anything inside it (see RockVaporBlock).

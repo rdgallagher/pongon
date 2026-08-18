@@ -39,6 +39,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PONGOL_BUTTON);
                         entries.add(ModBlocks.PONGOL_LEAVES);
                         entries.add(ModBlocks.ASH);
+                        entries.add(ModBlocks.VOLCANO_VENT);
                         entries.add(ModItems.LAVA_BLOB_SPAWN_EGG);
                         entries.add(ModItems.PONGONITE_LUMP);
                         entries.add(ModItems.PONGONITE_SWORD);
