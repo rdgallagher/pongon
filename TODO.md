@@ -20,7 +20,18 @@ and `CONTEXT.md`.
 - [ ] Pongol Forest follow-ups — saplings + sapling growth, ground tuft vegetation, distinct sky/fog tint
 - [x] Pongol wood family — Pongol Wood + Pongol Planks blocks, Oak-style recipes (log→planks, 4 logs→wood)
 - [x] Pongol plank-derived set — stairs, slab, fence, fence gate, door, trapdoor, pressure plate, button (blocks, recipes, tags). Signs + boats deferred (need block-entities / entity-types)
-- [ ] Ashen Barrens biome — bare ash/crushed-magma islands, harsher feel
+- [ ] Ashen Barrens biome — ash islands dominated by Volcanoes, harsher feel
+      - [x] Ash block — surface skin of the biome
+      - [x] Biome placement — second island biome, so the first to need the regional
+            type noise ADR 0001 called for (`pongon:region` on the `temperature` axis).
+            Forest-dominant: Barrens takes temperature < -0.25. Pending in-game
+            verification — the split point is a guess at the noise distribution and
+            likely needs tuning.
+      - [ ] Volcanoes — cone + lava crater. Built as a placed feature, not terrain
+            noise: density functions aren't biome-aware, and a feature keeps biomes
+            inside the scope-B contract in `CONTEXT.md`/ADR 0001. Needs ADR 0002.
+      - [ ] Ash spew + lava streams from the volcanoes
+      - [ ] Hostile mob spawns — TBD
 - [ ] Dingolin Spires biome — rocky islands studded with crystal/Dingolin formations
 - [ ] Canyons biome — **scope-C** (varies terrain shape): canyons, lava lake + lava rivers; needs a scope revisit before building
 

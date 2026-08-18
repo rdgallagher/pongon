@@ -20,7 +20,19 @@
         {
           "biome": "pongon:pongol_forest",
           "parameters": {
-            "temperature": [-2.0, 2.0],
+            "temperature": [-0.25, 2.0],
+            "humidity": [-2.0, 2.0],
+            "continentalness": [0.3, 2.0],
+            "erosion": [-2.0, 2.0],
+            "weirdness": [-2.0, 2.0],
+            "depth": [-2.0, 2.0],
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "pongon:ashen_barrens",
+          "parameters": {
+            "temperature": [-2.0, -0.25],
             "humidity": [-2.0, 2.0],
             "continentalness": [0.3, 2.0],
             "erosion": [-2.0, 2.0],

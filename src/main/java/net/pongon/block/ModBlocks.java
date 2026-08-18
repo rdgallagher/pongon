@@ -96,6 +96,12 @@ public class ModBlocks {
                     .suffocates((state, world, pos) -> false)
                     .blockVision((state, world, pos) -> false)));
 
+    // --- Ashen Barrens biome ---
+    public static final Block ASH = register("ash",
+            new Block(AbstractBlock.Settings.create()
+                    .strength(0.5f)
+                    .sounds(BlockSoundGroup.SAND)));
+
     // Unmineable world floor: a glowing, searing gas you fall through and that burns
     // anything inside it (see RockVaporBlock).
     public static final Block ROCK_VAPOR = register("rock_vapor",
