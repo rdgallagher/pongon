@@ -9,8 +9,10 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.pongon.PongonTime;
+import net.pongon.entity.LavaBombEntity;
 
 /**
  * Drives one volcano's eruptions. Rolls once at each Pongon dawn; on a hit the
@@ -25,6 +27,13 @@ public class VolcanoVentBlockEntity extends BlockEntity {
 
     /** How far above the vent to look for open air to erupt through. */
     private static final int VENT_SEARCH_HEIGHT = 24;
+
+    /** Average ticks between lava bombs, so an eruption throws roughly twenty. */
+    private static final int TICKS_PER_BOMB = 30;
+    private static final double BOMB_LAUNCH_SPEED = 0.85;
+    private static final double BOMB_LAUNCH_SPEED_VARIANCE = 0.45;
+    /** Sideways kick. Kept low so bombs rain onto the cone and its skirt, not the whole biome. */
+    private static final double BOMB_SPREAD = 0.30;
 
     /** No day rolled yet — set on the first tick so a volcano never erupts the instant it loads. */
     private static final long NO_DAY = Long.MIN_VALUE;
@@ -76,6 +85,23 @@ public class VolcanoVentBlockEntity extends BlockEntity {
         world.spawnParticles(ParticleTypes.ASH,
                 mouth.getX() + 0.5, mouth.getY() + 1.5, mouth.getZ() + 0.5,
                 10, 2.0, 1.0, 2.0, 0.02);
+
+        if (world.getRandom().nextInt(TICKS_PER_BOMB) == 0) {
+            this.throwBomb(world, mouth);
+        }
+    }
+
+    private void throwBomb(ServerWorld world, BlockPos mouth) {
+        Random random = world.getRandom();
+        LavaBombEntity bomb = new LavaBombEntity(world,
+                mouth.getX() + 0.5, mouth.getY() + 1.0, mouth.getZ() + 0.5);
+        bomb.setVelocity(
+                (random.nextDouble() - 0.5) * 2.0 * BOMB_SPREAD,
+                BOMB_LAUNCH_SPEED + random.nextDouble() * BOMB_LAUNCH_SPEED_VARIANCE,
+                (random.nextDouble() - 0.5) * 2.0 * BOMB_SPREAD);
+        world.spawnEntity(bomb);
+        world.playSound(null, mouth, SoundEvents.ENTITY_GENERIC_EXPLODE.value(), SoundCategory.BLOCKS,
+                1.6f, 0.7f + random.nextFloat() * 0.3f);
     }
 
     /**

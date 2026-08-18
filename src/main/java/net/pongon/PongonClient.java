@@ -3,6 +3,7 @@ package net.pongon;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.RenderLayer;
 import net.pongon.block.ModBlocks;
 import net.pongon.client.LavaBlobEntityRenderer;
@@ -16,5 +17,6 @@ public class PongonClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROCK_VAPOR, RenderLayer.getTranslucent());
 
         EntityRendererRegistry.register(ModEntities.LAVA_BLOB, LavaBlobEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.LAVA_BOMB, FlyingItemEntityRenderer::new);
     }
 }

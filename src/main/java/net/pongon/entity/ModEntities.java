@@ -20,6 +20,12 @@ public class ModEntities {
                     .dimensions(0.52f, 0.52f)
                     .build("lava_blob"));
 
+    public static final EntityType<LavaBombEntity> LAVA_BOMB = register("lava_bomb",
+            EntityType.Builder.<LavaBombEntity>create(LavaBombEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.5f, 0.5f)
+                    .maxTrackingRange(8)
+                    .build("lava_bomb"));
+
     private static <T extends Entity> EntityType<T> register(String name, EntityType<T> type) {
         return Registry.register(Registries.ENTITY_TYPE, Identifier.of(Pongon.MOD_ID, name), type);
     }
