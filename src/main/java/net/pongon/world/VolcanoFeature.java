@@ -103,6 +103,11 @@ public class VolcanoFeature extends Feature<DefaultFeatureConfig> {
         // the vent, so the world remembers a volcano stands here and can erupt it.
         pos.set(origin.getX(), craterFloorY, origin.getZ());
         setBlockState(world, pos, VENT);
+        if (world.getBlockEntity(pos) instanceof VolcanoVentBlockEntity vent) {
+            // Only the feature knows the cone it just built; the vent needs the shape to
+            // pour lava over the rim and to cool the streams afterwards.
+            vent.setCone((int) Math.round(craterRadius), rimY, radius, baseY);
+        }
         return true;
     }
 

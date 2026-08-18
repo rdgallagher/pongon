@@ -32,8 +32,18 @@ and `CONTEXT.md`.
             Feature in the mod; adds ModFeatures. Geometry checked offline, pending
             in-game verification. Tuning knobs: rarity_filter chance (12) in the
             placed feature, and the shape constants atop VolcanoFeature.
-      - [ ] Ash spew + lava streams from the volcanoes
+      - [x] Eruptions — 20% chance rolled at each Pongon dawn, ~35 s of activity.
+            Volcano Vent block entity buried in the crater is what remembers a volcano
+            is there; it only ticks while its chunk is loaded. Pending in-game
+            verification. Tuning knobs are the constants atop VolcanoVentBlockEntity.
+            - [x] Lava bombs — arc out, explode small, burn, leave magma
+            - [x] Lava streams — lava wells over the rim and runs down, then cools to
+                  Crushed Magma in a slice-per-tick sweep (never below sea level)
+            - [x] Ash cloud — plume over the crater + ash settling permanently around it
       - [ ] Hostile mob spawns — TBD
+      - [ ] Eruption follow-ups: warning rumble before it starts, custom sounds (the
+            boom is currently vanilla's generic explode), and a look at whether repeated
+            eruptions bury the cone in too much ash
 - [ ] Dingolin Spires biome — rocky islands studded with crystal/Dingolin formations
 - [ ] Canyons biome — **scope-C** (varies terrain shape): canyons, lava lake + lava rivers; needs a scope revisit before building
 

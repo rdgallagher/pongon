@@ -49,7 +49,8 @@ public class DayNightCycle {
     // Chunks converted per tick — spreads the work to avoid a lag spike when many load at once.
     private static final int CHUNKS_PER_TICK = 4;
     // The ocean surface sits at sea level; only this top layer melts to lava.
-    private static final int SEA_LEVEL = 135;
+    /** The lava ocean's surface — a property of the Base, shared with anything that must not disturb it. */
+    public static final int SEA_LEVEL = 135;
     // At night, lava is cleaned out of this whole band (down 10 blocks), so any flow
     // left by the old version — or by a rare edge case — is removed, not accumulated.
     private static final int BAND_BOTTOM = SEA_LEVEL - 9;
