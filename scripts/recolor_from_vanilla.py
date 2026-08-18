@@ -16,6 +16,10 @@ from PIL import Image
 
 JAR = Path.home() / ".gradle/caches/fabric-loom/1.21/minecraft-client.jar"
 OUT = Path("src/main/resources/assets/pongon/textures")
+# Hand-authored build-input textures that are consumed as recolor sources but not
+# shipped as-is (e.g. the old nuggety Pongonite block, kept as the Raw Dingolin source
+# after pongonite_block itself became an Iron-Block-based refined texture).
+SOURCES = Path("scripts/sources")
 
 # Diamond teal source range (used for most tools/armor)
 DIAMOND_HUE_MIN = 140 / 360
@@ -50,11 +54,19 @@ ITEMS = [
     ("assets/minecraft/textures/models/armor/diamond_layer_1.png", DIAMOND_HUE_MIN, DIAMOND_HUE_MAX, 80/360, "models/armor/dingolin_layer_1.png"),
     ("assets/minecraft/textures/models/armor/diamond_layer_2.png", DIAMOND_HUE_MIN, DIAMOND_HUE_MAX, 80/360, "models/armor/dingolin_layer_2.png"),
 
+    # --- Pongonite block: Iron Block recolored to Pongonite pink-magenta 335° ---
+    # Like the refined Dingolin Block, the Pongonite Block uses the vanilla Iron Block's
+    # metallic bevel so it reads as smelted metal. Iron is greyscale, so the tight
+    # warm_range + saturation floor is what colorises it (same trick as dingolin_block).
+    ("assets/minecraft/textures/block/iron_block.png", 0/360, 360/360, 335/360, "block/pongonite_block.png",
+     {"sat_mult": 3.0, "sat_floor": 0.72, "val_mult": 0.92, "warm_range": (333/360, 337/360)}),
+
     # --- Dingolin blocks: Pongonite block textures recolored (→ yellow-green 80°) ---
-    # pongonite_ore uses blue-purple (258–308°); pongonite_block uses pink (323–329°)
+    # pongonite_ore uses blue-purple (258–308°); the nuggety source is the pre-refined
+    # Pongonite block art, kept as a build input now that pongonite_block is Iron-based.
     (OUT / "block/pongonite_ore.png",   248/360, 315/360, 80/360, "block/dingolin_ore.png"),
     # The raw block keeps the nuggety Pongonite-block look: it's the unrefined form.
-    (OUT / "block/pongonite_block.png", 310/360, 360/360, 80/360, "block/raw_dingolin_block.png"),
+    (SOURCES / "pongonite_block_nuggety.png", 310/360, 360/360, 80/360, "block/raw_dingolin_block.png"),
     # The refined Dingolin Block is the vanilla Iron Block's metallic bevel instead, so
     # it reads as smelted metal rather than raw ore. Iron is greyscale, so the tight
     # warm_range + saturation floor is what colorises it (same trick as rock_vapor).
