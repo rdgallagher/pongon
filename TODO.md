@@ -27,9 +27,11 @@ and `CONTEXT.md`.
             Forest-dominant: Barrens takes temperature < -0.25. Pending in-game
             verification — the split point is a guess at the noise distribution and
             likely needs tuning.
-      - [ ] Volcanoes — cone + lava crater. Built as a placed feature, not terrain
-            noise: density functions aren't biome-aware, and a feature keeps biomes
-            inside the scope-B contract in `CONTEXT.md`/ADR 0001. Needs ADR 0002.
+      - [x] Volcanoes — cone of Crushed Magma skinned in Ash with a lava crater, as a
+            placed feature rather than terrain noise (see ADR 0002). First custom
+            Feature in the mod; adds ModFeatures. Geometry checked offline, pending
+            in-game verification. Tuning knobs: rarity_filter chance (12) in the
+            placed feature, and the shape constants atop VolcanoFeature.
       - [ ] Ash spew + lava streams from the volcanoes
       - [ ] Hostile mob spawns — TBD
 - [ ] Dingolin Spires biome — rocky islands studded with crystal/Dingolin formations

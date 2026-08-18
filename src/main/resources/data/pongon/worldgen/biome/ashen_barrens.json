@@ -20,7 +20,27 @@
   },
   "spawn_costs": {},
   "carvers": {
-    "air": ["minecraft:cave", "minecraft:canyon"]
+    "air": [
+      "minecraft:cave",
+      "minecraft:canyon"
+    ]
   },
-  "features": [[], [], [], [], [], [], ["pongon:pongonite_ore", "pongon:dingolin_ore"], [], [], [], []]
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [
+      "pongon:volcano"
+    ],
+    [],
+    [
+      "pongon:pongonite_ore",
+      "pongon:dingolin_ore"
+    ],
+    [],
+    [],
+    [],
+    []
+  ]
 }
