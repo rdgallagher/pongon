@@ -8,6 +8,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.boss.dragon.EnderDragonPart;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.mob.MobEntity;
@@ -259,13 +260,29 @@ public class LavaBlobEntity extends SlimeEntity {
         if (world.isClient) return;
         float perTick = beamDamagePerSecond(world) / 20.0f;
         if (perTick <= 0.0f) return;
-        DamageSource source = world.getDamageSources().inFire();
+        DamageSource fireSource = world.getDamageSources().inFire();
+        // The Ender Dragon discards all non-player damage except explosion-typed sources
+        // (vanilla's ALWAYS_HURTS_ENDER_DRAGONS damage-type tag holds only #is_explosion).
+        // Fire damage reaches its parts but is silently dropped, so the beam must deal
+        // explosion-typed damage to the dragon specifically.
+        DamageSource dragonSource = world.getDamageSources().explosion(this, this);
         Box beamBox = new Box(start, end).expand(0.25);
+        // The Ender Dragon ignores direct damage to its body: its damageable volume is a
+        // set of EnderDragonPart hitboxes (plain Entities, not LivingEntity), each routing
+        // to the dragon via its own damage(). So the beam must hit parts, not just living
+        // entities.
         for (Entity e : world.getOtherEntities(this, beamBox,
-                other -> other instanceof LivingEntity && other.isAlive())) {
+                other -> (other instanceof LivingEntity || other instanceof EnderDragonPart)
+                        && other.isAlive())) {
             if (e.getBoundingBox().expand(0.1).raycast(start, end).isPresent()) {
-                ((LivingEntity) e).timeUntilRegen = 0; // continuous burn, bypass i-frames
-                e.damage(source, perTick);
+                // Continuous burn: clear the target's i-frames so every tick lands.
+                if (e instanceof LivingEntity living) {
+                    living.timeUntilRegen = 0;
+                    e.damage(fireSource, perTick);
+                } else if (e instanceof EnderDragonPart part) {
+                    part.owner.timeUntilRegen = 0;
+                    e.damage(dragonSource, perTick);
+                }
             }
         }
     }

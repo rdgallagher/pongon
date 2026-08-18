@@ -3,7 +3,7 @@ package net.pongon.entity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.Monster;
 import net.minecraft.util.math.Box;
 
 import java.util.EnumSet;
@@ -63,8 +63,14 @@ public class RockVaporBeamGoal extends Goal {
         Box box = this.blob.getBoundingBox().expand(LavaBlobEntity.BEAM_RANGE);
         LivingEntity nearest = null;
         double bestSq = Double.MAX_VALUE;
+        // Target the Monster interface, not the HostileEntity base class: Shulkers
+        // (GolemEntity) and the Ender Dragon (MobEntity) are Monsters but not
+        // HostileEntity, so a base-class check misses them. Exclude fellow Lava Blobs —
+        // they're SlimeEntity, which is also a Monster, and must not fire on their kin.
         for (Entity e : this.blob.getWorld().getOtherEntities(this.blob, box,
-                other -> other instanceof HostileEntity && other.isAlive())) {
+                other -> other instanceof Monster
+                        && !(other instanceof LavaBlobEntity)
+                        && other.isAlive())) {
             double dSq = this.blob.squaredDistanceTo(e);
             if (dSq < bestSq) {
                 bestSq = dSq;
