@@ -24,7 +24,7 @@ and `CONTEXT.md`.
       - [x] Ash block — surface skin of the biome
       - [x] Biome placement — second island biome, so the first to need the regional
             type noise ADR 0001 called for (`pongon:region` on the `temperature` axis).
-            Forest-dominant: Barrens takes temperature < -0.25.
+            Even split: Barrens takes temperature < 0.0, the noise's median.
       - [x] Volcanoes — cone of Crushed Magma skinned in Ash with a lava crater, as a
             placed feature rather than terrain noise (see ADR 0002). First custom
             Feature in the mod; adds ModFeatures. Tuning knobs: rarity_filter chance
