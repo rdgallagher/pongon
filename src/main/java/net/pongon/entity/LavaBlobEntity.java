@@ -56,9 +56,9 @@ public class LavaBlobEntity extends SlimeEntity {
     private LivingEntity beamTarget;
     // How far the beam has extended this engagement (ramps at 16 blocks/s).
     private double beamReach;
-    // The visible stream: a Rock-Vapor-yellow dust column from mouth to endpoint.
+    // The visible stream: a Rock-Vapor-white dust column from mouth to endpoint.
     private static final DustParticleEffect BEAM_PARTICLE =
-            new DustParticleEffect(new Vector3f(1.0f, 0.85f, 0.25f), 1.4f);
+            new DustParticleEffect(new Vector3f(1.0f, 1.0f, 1.0f), 1.4f);
 
     public LavaBlobEntity(EntityType<? extends LavaBlobEntity> entityType, World world) {
         super(entityType, world);

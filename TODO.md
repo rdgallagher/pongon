@@ -67,7 +67,7 @@ and `CONTEXT.md`.
 
 - [x] Dingolin ore — block, world gen, drops (fully specced in design notes)
 - [ ] Crushed Magma world gen — underground stone layer (fully specced)
-- [x] Rock Vapor kill mechanic — glowing yellow pass-through gas, 20 HP/sec contact damage
+- [x] Rock Vapor kill mechanic — glowing white pass-through gas, 20 HP/sec contact damage
 - [ ] Custom terrain generation — replace flat generator with noise-based terrain
 - [x] Pongon sky — bright custom star (no moon), via client mixin on renderSky. Pending
       in-game verification. Follow-up: the "blinding star" look-at-it mechanic (damage +
@@ -81,7 +81,7 @@ and `CONTEXT.md`.
       - [x] Despawn + keep-alive (night 50%/5min unless daytime or on fire/lava/magma/crushed magma) — pending in-game verification
       - [x] Rock Vapor beam — targets nearest hostile in 16 blocks, extends 16 blk/s,
             pierces entities (30/20/10 HP/s), melts the end block to lava (bores forward),
-            yellow particle stream. Pending in-game verification. Owner-guard when tamed
+            white particle stream. Pending in-game verification. Owner-guard when tamed
             deferred to Canyons.
       - [ ] Polish: flattened-dome model, single-icon Blobiness, sounds, contact springy
             push, beam sound, tune beam block-melt lag if needed
