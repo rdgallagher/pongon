@@ -24,18 +24,15 @@ and `CONTEXT.md`.
       - [x] Ash block — surface skin of the biome
       - [x] Biome placement — second island biome, so the first to need the regional
             type noise ADR 0001 called for (`pongon:region` on the `temperature` axis).
-            Forest-dominant: Barrens takes temperature < -0.25. Pending in-game
-            verification — the split point is a guess at the noise distribution and
-            likely needs tuning.
+            Forest-dominant: Barrens takes temperature < -0.25.
       - [x] Volcanoes — cone of Crushed Magma skinned in Ash with a lava crater, as a
             placed feature rather than terrain noise (see ADR 0002). First custom
-            Feature in the mod; adds ModFeatures. Geometry checked offline, pending
-            in-game verification. Tuning knobs: rarity_filter chance (12) in the
-            placed feature, and the shape constants atop VolcanoFeature.
+            Feature in the mod; adds ModFeatures. Tuning knobs: rarity_filter chance
+            (12) in the placed feature, and the shape constants atop VolcanoFeature.
       - [x] Eruptions — 20% chance rolled at each Pongon dawn, ~35 s of activity.
             Volcano Vent block entity buried in the crater is what remembers a volcano
-            is there; it only ticks while its chunk is loaded. Pending in-game
-            verification. Tuning knobs are the constants atop VolcanoVentBlockEntity.
+            is there; it only ticks while its chunk is loaded. Tuning knobs are the
+            constants atop VolcanoVentBlockEntity.
             - [x] Lava bombs — arc out, explode small, burn, leave magma
             - [x] Lava streams — lava wells over the rim and runs down, then cools to
                   Crushed Magma in a slice-per-tick sweep (never below sea level)
@@ -61,7 +58,7 @@ and `CONTEXT.md`.
   unblock. See `docs/bugs/0001-consumables-interrupted-in-pongon.md`.
 - [x] **Redesign the day/night lava cycle** (re-enabled without the freeze) —
   surface-only + landlocked source lava + freeze-the-whole-band cleanup + quiet
-  setBlockState flags. Pending in-game verification (no "Can't keep up" stalls).
+  setBlockState flags.
 
 ## Ready to implement (design settled)
 
@@ -69,20 +66,19 @@ and `CONTEXT.md`.
 - [ ] Crushed Magma world gen — underground stone layer (fully specced)
 - [x] Rock Vapor kill mechanic — glowing white pass-through gas, 20 HP/sec contact damage
 - [ ] Custom terrain generation — replace flat generator with noise-based terrain
-- [x] Pongon sky — bright custom star (no moon), via client mixin on renderSky. Pending
-      in-game verification. Follow-up: the "blinding star" look-at-it mechanic (damage +
-      White Out), and optionally a bigger/tinted star or starless night.
+- [x] Pongon sky — bright custom star (no moon), via client mixin on renderSky.
+      Follow-up: the "blinding star" look-at-it mechanic (damage + White Out), and
+      optionally a bigger/tinted star or starless night.
 - [ ] Lava Blob (mob) — wild blob, spec in `docs/specs/lava-blob.md`. Taming deferred to Canyons.
       - [x] Entity + renderer + spawn egg (bounces, no aggression) — first entity, scaffolds ModEntities
       - [x] Invincibility + Potion of Blobiness (ModEffects; /kill still works)
       - [x] Day-gated spawning — vanilla creature spawn was far too sparse, so a custom
             capped near-player daytime spawner (LavaBlobSpawner) does the real work; the
             biome creature-pool entry stays as a low-rate extra. PongonTime helper shared.
-      - [x] Despawn + keep-alive (night 50%/5min unless daytime or on fire/lava/magma/crushed magma) — pending in-game verification
+      - [x] Despawn + keep-alive (night 50%/5min unless daytime or on fire/lava/magma/crushed magma)
       - [x] Rock Vapor beam — targets nearest hostile in 16 blocks, extends 16 blk/s,
             pierces entities (30/20/10 HP/s), melts the end block to lava (bores forward),
-            white particle stream. Pending in-game verification. Owner-guard when tamed
-            deferred to Canyons.
+            white particle stream. Owner-guard when tamed deferred to Canyons.
       - [ ] Polish: flattened-dome model, single-icon Blobiness, sounds, contact springy
             push, beam sound, tune beam block-melt lag if needed
 
