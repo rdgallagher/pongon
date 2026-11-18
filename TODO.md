@@ -17,7 +17,11 @@ Architecture decided — `multi_noise` with continentalness derived from the isl
 noise; Lava Ocean base + per-island biomes. See `docs/adr/0001-biome-placement-from-terrain-noise.md`
 and `CONTEXT.md`.
 
-- [ ] Pongol Forest follow-ups — saplings + sapling growth, ground tuft vegetation, distinct sky/fog tint
+- [ ] Pongol Forest follow-ups
+      - [x] Pongol Sapling — drops from Pongol Leaves (vanilla oak odds, no apples;
+            leaves themselves now need shears/silk touch), grows the `pongol_tree` feature
+      - [ ] Ground tuft vegetation
+      - [ ] Distinct sky/fog tint
 - [x] Pongol wood family — Pongol Wood + Pongol Planks blocks, Oak-style recipes (log→planks, 4 logs→wood)
 - [x] Pongol plank-derived set — stairs, slab, fence, fence gate, door, trapdoor, pressure plate, button (blocks, recipes, tags). Signs + boats deferred (need block-entities / entity-types)
 - [ ] Ashen Barrens biome — ash islands dominated by Volcanoes, harsher feel
@@ -63,9 +67,9 @@ and `CONTEXT.md`.
 ## Ready to implement (design settled)
 
 - [x] Dingolin ore — block, world gen, drops (fully specced in design notes)
-- [ ] Crushed Magma world gen — underground stone layer (fully specced)
+- [x] Crushed Magma world gen — underground stone layer (the noise terrain's default block)
 - [x] Rock Vapor kill mechanic — glowing white pass-through gas, 20 HP/sec contact damage
-- [ ] Custom terrain generation — replace flat generator with noise-based terrain
+- [x] Custom terrain generation — replace flat generator with noise-based terrain
 - [x] Pongon sky — bright custom star (no moon), via client mixin on renderSky.
       Follow-up: the "blinding star" look-at-it mechanic (damage + White Out), and
       optionally a bigger/tinted star or starless night.

@@ -16,6 +16,8 @@ public class PongonClient implements ClientModInitializer {
         // see through the haze (its texture carries a partial alpha).
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROCK_VAPOR, RenderLayer.getTranslucent());
 
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PONGOL_SAPLING, RenderLayer.getCutout());
+
         EntityRendererRegistry.register(ModEntities.LAVA_BLOB, LavaBlobEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.LAVA_BOMB, FlyingItemEntityRenderer::new);
     }

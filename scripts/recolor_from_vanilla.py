@@ -110,6 +110,10 @@ ITEMS = [
     # as-is).
     ("assets/minecraft/textures/block/cherry_leaves.png", 290/360, 360/360, 50/360, "block/pongol_leaves.png",
      {"sat_mult": 2.0, "sat_floor": 0.85, "val_mult": 1.35, "val_floor": 0.7, "warm_range": (20/360, 38/360)}),
+    # Pongol Sapling: Cherry sapling's pink blossom recolored to the leaves' orange-yellow,
+    # leaving its brown stem alone.
+    ("assets/minecraft/textures/block/cherry_sapling.png", 290/360, 360/360, 40/360, "block/pongol_sapling.png",
+     {"sat_mult": 2.0, "sat_floor": 0.85, "val_mult": 1.35, "val_floor": 0.7}),
 
     # Blobiness effect icon: vanilla Slowness icon recolored to lava orange.
     ("assets/minecraft/textures/mob_effect/slowness.png", 0/360, 360/360, 22/360, "mob_effect/blobiness.png",

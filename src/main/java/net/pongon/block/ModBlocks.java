@@ -10,18 +10,25 @@ import net.minecraft.block.FenceGateBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.block.PressurePlateBlock;
+import net.minecraft.block.SaplingBlock;
+import net.minecraft.block.SaplingGenerator;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.block.TrapdoorBlock;
 import net.minecraft.block.WoodType;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.pongon.Pongon;
 import net.pongon.world.VolcanoVentBlock;
+
+import java.util.Optional;
 
 public class ModBlocks {
     public static final Block CRUSHED_MAGMA = register("crushed_magma",
@@ -96,6 +103,19 @@ public class ModBlocks {
                     .burnable()
                     .suffocates((state, world, pos) -> false)
                     .blockVision((state, world, pos) -> false)));
+
+    public static final Block PONGOL_SAPLING = register("pongol_sapling",
+            new SaplingBlock(
+                    new SaplingGenerator("pongon:pongol", Optional.empty(),
+                            Optional.of(RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Identifier.of(Pongon.MOD_ID, "pongol_tree"))),
+                            Optional.empty()),
+                    AbstractBlock.Settings.create()
+                            .noCollision()
+                            .ticksRandomly()
+                            .breakInstantly()
+                            .sounds(BlockSoundGroup.GRASS)
+                            .pistonBehavior(PistonBehavior.DESTROY)
+                            .burnable()));
 
     // --- Ashen Barrens biome ---
     public static final Block ASH = register("ash",
